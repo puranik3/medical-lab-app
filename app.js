@@ -6,7 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 
+var about = require('./server/routes/about');
 var index = require('./server/routes/index');
+var packages = require('./server/routes/packages');
+var patients = require('./server/routes/patients');
+var tests = require('./server/routes/tests');
 var users = require('./server/routes/users');
 
 var app = express();
@@ -28,7 +32,12 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// mount various routers onto sub-paths
 app.use('/', index);
+app.use('/about', about);
+app.use('/packages', packages);
+app.use('/patients', patients);
+app.use('/tests', tests);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

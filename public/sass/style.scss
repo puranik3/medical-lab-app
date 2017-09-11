@@ -1,8 +1,18 @@
 body {
-  padding: 50px;
+  padding-top: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+/* 
+  ===== Get footer at the absolute bottom =====
+/*
+body {
+  min-height: 100vh;
 }
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+*/

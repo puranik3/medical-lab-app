@@ -2,12 +2,36 @@ doctype html
 html
   head
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title= title
+    title=title
     link(rel='stylesheet', href='/external/bootstrap-3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='/external/bootstrap-3.3.7/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/css/style.css')
   body
-    block content
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#primary-menu') Menu
+          a.navbar-brand(href='/') XYZ Medical Lab App
+        #primary-menu.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/patients/') Patients
+            li
+              a(href='/tests/') Tests
+            li
+              a(href='/packages/') Packages
+            li
+              a(href='/about/') About
+
+    .container
+      .row
+        .col-xs-12
+          block content
+
+      footer.row
+        .col-xs-12.text-center
+          hr
+          small &copy; #{(new Date).getFullYear()} All rights reserved, XYZ Medical Systems Pvt. Ltd.
 
     script(src='/external/jquery-1.12.4/jquery.min.js')
     script(src='/external/bootstrap-3.3.7/js/bootstrap.min.js')

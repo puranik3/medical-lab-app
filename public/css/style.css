@@ -1,10 +1,19 @@
 /* line 1, ../sass/style.scss */
 body {
-  padding: 50px;
+  padding-top: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/* line 6, ../sass/style.scss */
-a {
-  color: #00B7FF;
+/* 
+  ===== Get footer at the absolute bottom =====
+/*
+body {
+  min-height: 100vh;
 }
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+*/
