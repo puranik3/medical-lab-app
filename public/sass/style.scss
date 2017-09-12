@@ -1,3 +1,31 @@
+.btn-action {
+  cursor: pointer;
+}
+
+.btn-action:hover {
+  color: darkgray;
+}
+
+.panel-heading {
+  position: relative;
+}
+
+.panel-title-container {
+  width: 100%;
+  padding-right: 60px;
+}
+
+.panel-action-container {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 45px;
+}
+
+.panel-title[data-toggle="collapse"] {
+  cursor: pointer;
+}
+
 body {
   padding-top: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;

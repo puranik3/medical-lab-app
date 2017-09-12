@@ -9,15 +9,21 @@ block content
     #package-list.panel-group
         each package, index in packages
             .panel.panel-primary
-                .panel-heading(data-target='#package-#{index}', data-toggle="collapse", data-parent="#package-list")
-                    .row
-                        .col-xs-4 Name: #{package.name}
-                        .col-xs-4 Price: #{package.currency} #{package.price}
-                        .col-xs-4 
-                            span Discount: 
-                            +showPackageDiscountCurrencyIfApplicable(package)
-                            span #{package.discount.amount}
-                            +showPackageDiscountPercentageIfApplicable(package)
+                .panel-heading
+                    .panel-title-container
+                            .panel-title(data-target='#package-#{index}', data-toggle="collapse", data-parent="#package-list")
+                                .row
+                                    .col-xs-1
+                                        span.fa.fa-caret-right
+                                    .col-xs-5 Name: #{package.name}
+                                    .col-xs-3 Price: #{package.currency} #{package.price}
+                                    .col-xs-3 
+                                        span Discount: 
+                                        +showPackageDiscountCurrencyIfApplicable(package)
+                                        span #{package.discount.amount}
+                                        +showPackageDiscountPercentageIfApplicable(package)
+                        .panel-action-container
+                            i.fa.fa-pencil.pull-right.btn-action
                 .collapse.panel-collapse(id="package-#{index}")
                     .panel-body
                         span.text-primary Tests in this package
