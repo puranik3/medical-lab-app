@@ -1,19 +1,28 @@
 extends layout
 
+include _includes/sharedHtmlFunctions
+
 block content
     .page-header
         h1=pageHeader
     
     #package-list.panel-group
         each package, index in packages
-            .panel.panel-default
+            .panel.panel-primary
                 .panel-heading(data-target='#package-#{index}', data-toggle="collapse", data-parent="#package-list")
                     .row
                         .col-xs-4 Name: #{package.name}
                         .col-xs-4 Price: #{package.currency} #{package.price}
-                        .col-xs-4 Discount: #{package.discount.amount} (#{package.discount.type})
+                        .col-xs-4 
+                            span Discount: 
+                            +showPackageDiscountCurrencyIfApplicable(package)
+                            span #{package.discount.amount}
+                            +showPackageDiscountPercentageIfApplicable(package)
                 .collapse.panel-collapse(id="package-#{index}")
                     .panel-body
+                        span.text-primary Tests in this package
+                        <br /><br />
                         ul.list-group
-                            each test, index in package.tests
-                                li.list-group-item #{index + 1}. #{test.name}
+                             each test, index in package.tests
+                                 li.list-group-item #{index + 1}. #{test.name}
+                        input.btn.btn-primary.pull-right(type="button", value="Add tests")

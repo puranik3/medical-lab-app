@@ -1,0 +1,9 @@
+mixin showPackageDiscountCurrencyIfApplicable(package)
+    - if( package.discount.type === "currency" )
+      span
+        | #{package.currency}&nbsp;
+
+mixin showPackageDiscountPercentageIfApplicable(package)
+    - if( package.discount.type === "percentage" )
+      span
+        | %
