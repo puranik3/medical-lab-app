@@ -1,9 +1,14 @@
 mixin showPackageDiscountCurrencyIfApplicable(package)
-    - if( package.discount.type === "currency" )
+    - if( package.discount.strategy === "currency" )
       span
-        | #{package.currency}&nbsp;
+        | #{package.currency}
+      &nbsp;
 
 mixin showPackageDiscountPercentageIfApplicable(package)
-    - if( package.discount.type === "percentage" )
+    - if( package.discount.strategy === "percentage" )
       span
         | %
+
+mixin getFormattedDate(dateString)
+  - var date = (new Date( dateString )).toString().substr(4, 11)
+    | #{date}

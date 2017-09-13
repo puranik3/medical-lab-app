@@ -1,25 +1,30 @@
 /* line 1, ../sass/style.scss */
+.btn {
+  text-transform: capitalize;
+}
+
+/* line 5, ../sass/style.scss */
 .btn-action {
   cursor: pointer;
 }
 
-/* line 5, ../sass/style.scss */
+/* line 9, ../sass/style.scss */
 .btn-action:hover {
   color: darkgray;
 }
 
-/* line 9, ../sass/style.scss */
+/* line 13, ../sass/style.scss */
 .panel-heading {
   position: relative;
 }
 
-/* line 13, ../sass/style.scss */
+/* line 17, ../sass/style.scss */
 .panel-title-container {
   width: 100%;
   padding-right: 60px;
 }
 
-/* line 18, ../sass/style.scss */
+/* line 22, ../sass/style.scss */
 .panel-action-container {
   position: absolute;
   top: 10px;
@@ -27,18 +32,18 @@
   width: 45px;
 }
 
-/* line 25, ../sass/style.scss */
+/* line 29, ../sass/style.scss */
 .panel-title[data-toggle="collapse"] {
   cursor: pointer;
 }
 
-/* line 29, ../sass/style.scss */
+/* line 33, ../sass/style.scss */
 body {
   padding-top: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/* line 34, ../sass/style.scss */
+/* line 38, ../sass/style.scss */
 .package-tests {
   margin-top: 30px;
 }

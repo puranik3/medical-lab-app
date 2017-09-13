@@ -30,5 +30,9 @@ block content
                         <br /><br />
                         ul.list-group
                              each test, index in package.tests
-                                 li.list-group-item #{index + 1}. #{test.name}
-                        input.btn.btn-primary.pull-right(type="button", value="Add tests")
+                                 li.list-group-item
+                                    | #{index + 1}. #{test.name}
+                                    span.close.pull-right(title="Remove test from package") &times;
+                        button.btn.btn-primary.pull-right(role="button")
+                            i.fa.fa-plus
+                            | &nbsp; Add tests

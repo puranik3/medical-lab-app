@@ -16,6 +16,6 @@ block content
                 each test in tests
                     tr
                         td=test.name
-                        td=test.lower_limit
-                        td=test.upper_limit
+                        td=test.limits.lower
+                        td=test.limits.upper
                         td=test.units

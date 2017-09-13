@@ -1,0 +1,36 @@
+{
+    "tests": [
+        {
+            "name": "Fasting Blood Sugar (FBS)",
+            "limits": {
+                "lower": 70,
+                "upper": 110
+            },
+            "units": "mg/dl"
+        },
+        {
+            "name": "Urine Sugar (US)",
+            "limits": {
+                "lower": 40,
+                "upper": 80
+            },
+            "units": "mg/dl"
+        },
+        {
+            "name": "Blood Pressure (Systolic)",
+            "limits": {
+                "lower": 70,
+                "upper": 150
+            },
+            "units": "bpm"
+        },
+        {
+            "name": "Blood Pressure (Diastolic)",
+            "limits": {
+                "lower": 50,
+                "upper": 120
+            },
+            "units": "bpm"
+        }
+    ]
+}

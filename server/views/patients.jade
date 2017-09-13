@@ -1,5 +1,7 @@
 extends layout
 
+include _includes/sharedHtmlFunctions
+
 block content
     .page-header
         h1=pageHeader
@@ -9,6 +11,7 @@ block content
             thead.bg-primary
                 tr
                     th Name
+                    th Date of Birth
                     th Age
                     th Sex
                     th Phone number(s)
@@ -16,6 +19,8 @@ block content
                 each patient in patients
                     tr
                         td=patient.name
+                        td
+                            +getFormattedDate(patient.dob)
                         td=patient.age
                         td=patient.sex
                         td

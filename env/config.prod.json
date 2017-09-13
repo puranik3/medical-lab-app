@@ -1,0 +1,12 @@
+{
+    "data_sources": [
+        {
+            "protocol": "mongodb",
+            "username": "heroku_6hdfwxwx",
+            "password": "9qpn05kb9iag8l0ild4rcq41cu",
+            "server": "ds133814.mlab.com",
+            "port": 33814,
+            "db": "heroku_6hdfwxwx"
+        }
+    ]
+}

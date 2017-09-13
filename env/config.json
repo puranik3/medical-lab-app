@@ -1,0 +1,15 @@
+{
+    "app": {
+        "port": 3000
+    },
+    "data_sources": [
+        {
+            "protocol": "mongodb",
+            "username": "",
+            "password": "",
+            "server": "127.0.0.1",
+            "port": 27017,
+            "db": "medilab"
+        }
+    ]
+}
