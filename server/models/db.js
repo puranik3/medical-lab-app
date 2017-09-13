@@ -1,16 +1,16 @@
 var mongoose = require( 'mongoose' );
 var readline = require( 'readline' );
 
-var config = process.env.NODE_ENV === 'production' ? require( '../env/config.prod.json' ) : require( '../env/config.json' );
+var config = process.env.NODE_ENV === 'production' ? require( '../../env/config.prod.json' ) : require( '../../env/config.json' );
 
 var dbUri;
 if( process.env.NODE_ENV === 'production' ) {
-    dbUri = `${protocol}://${username}:${password}@${server}:${port}/${db}`;
+    dbUri = `${config.data_sources[0].protocol}://${config.data_sources[0].username}:${config.data_sources[0].password}@${config.data_sources[0].server}:${config.data_sources[0].port}/${config.data_sources[0].db}`;
 } else {
-    dbUri = `${protocol}://${server}:${port}/${db}`;
+    dbUri = `${config.data_sources[0].protocol}://${config.data_sources[0].server}:${config.data_sources[0].port}/${config.data_sources[0].db}`;
 }
 
-mongoose.connect( dbUri );
+mongoose.connect( dbUri, { useMongoClient: true } );
 
 mongoose.connection.on('connected', function() {
     console.log( 'Mongoose connected to ' + dbUri );

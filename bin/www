@@ -14,7 +14,7 @@ var config = process.env.NODE_ENV === 'production' ? require( '../env/config.pro
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort( process.env.PORT || config.app.port );
+var port = normalizePort( process.env.PORT || config.app && config.app.port || 3000 );
 app.set('port', port);
 
 /**
