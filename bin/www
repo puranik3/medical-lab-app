@@ -2,7 +2,9 @@
 
 // initialize environment variables stored as globals (under globals.MediLab)
 require( '../env/init-env' );
-// initialize the db and models.
+// initialize winston logger
+require( '../server/init-logger' );
+// initialize the db and models
 require( '../api/init-db' );
 
 /**

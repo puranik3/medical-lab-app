@@ -1,5 +1,5 @@
 var request = require( 'request' );
-const debug = require('debug')('medilab:server:controllers:patients');
+var debug = require('debug')('medilab:server:controllers:patients');
 
 var renderView = function( req, res, tests ) {
     res.render('tests', {

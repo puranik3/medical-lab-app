@@ -7,6 +7,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var wlogger = require( './server/init-logger' );
+
+//console.log( path.resolve(__dirname, 'medilab-app.log') );
+//winston.add(winston.transports.File, { filename: path.resolve(__dirname, 'medilab-app.log') });
+wlogger.info('Hello world');
 
 var auth = require( './auth/auth' );
 
@@ -67,8 +72,9 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   //res.locals.error = req.app.get('env') === 'development' ? err : {};
-  res.locals.error = process.env.NODE_ENV !== 'production' ? err : {}; // @todo Change this to selectively allow for specific environments instead
-  
+  // res.locals.error = process.env.NODE_ENV !== 'production' ? err : {}; // @todo Change this to selectively allow for specific environments instead
+  res.locals.error = err;
+
   // render the error page
   res.status(err.status || 500);
   res.render('error');

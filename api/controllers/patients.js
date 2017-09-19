@@ -4,23 +4,28 @@ var _ = require( 'lodash' );
 var Patient = mongoose.model( 'Patient' );
 var utils = require( '../../utils/utils' );
 var debug = require( 'debug' )( 'medilab:api:controllers:patients' );
+var wlogger = require('../../server/init-logger' );
 
 module.exports = {
     find: function(req, res, next) {
+        wlogger.info( 'start find()' );
         debug( 'start find()' );
         Patient
             .find()
             .exec(function( err, patients ) {
                 if( !patients ) {
+                    wlogger.info( 'end find() : Patients not found' );
                     debug( 'end find() : Patients not found' );
                     return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Patients not found' );
                 }
     
                 if( err ) {
+                    wlogger.info( 'end find() : ', err.message );
                     debug( 'end find() : %s', err.message );
                     return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
                 }
 
+                wlogger.info( 'end find() : patients = ', JSON.stringify( patients ) );
                 debug( 'end find() : patients = %O', patients );
                 res.status( httpStatus.OK ).json( patients );
             });
