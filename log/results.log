@@ -4,3 +4,4 @@
 {"level":"info","message":"end find() : patients =  [{\"_id\":\"59c0fe95c3408e99d1934cfc\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]}]","timestamp":"18:28:06"}
 {"level":"info","message":"medilab:server:controllers:patients patients =  [{\"_id\":\"59c0fe95c3408e99d1934cfc\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]}]","timestamp":"18:28:06"}
 {"level":"info","message":"Hello world","timestamp":"18:36:57"}
+{"level":"info","message":"Hello world","timestamp":"19:01:33"}
