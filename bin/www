@@ -1,28 +1,22 @@
 #!/usr/bin/env node
 
+// initialize environment variables stored as globals (under globals.MediLab)
+require( '../env/init-env' );
+// initialize the db and models.
+require( '../api/init-db' );
+
 /**
  * Module dependencies.
  */
-
 var app = require('../app');
 var debug = require('debug')('medical-lab---ezhil-ilanko:server');
 var http = require('http');
 
-var config = process.env.NODE_ENV === 'production' ? require( '../env/config.prod.json' ) : require( '../env/config.json' );
-
-/**
- * Get port from environment and store in Express.
- */
-
-var port = normalizePort( process.env.PORT || config.app && config.app.port || 3000 );
-app.set('port', port);
-
 /**
  * Create HTTP server.
  */
-
+var port = global.MediLab.APP_PORT;
 var server = http.createServer(app);
-
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -30,26 +24,6 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
-}
 
 /**
  * Event listener for HTTP server "error" event.

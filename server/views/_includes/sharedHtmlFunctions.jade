@@ -12,3 +12,36 @@ mixin showPackageDiscountPercentageIfApplicable(package)
 mixin getFormattedDate(dateString)
   - var date = (new Date( dateString )).toString().substr(4, 11)
     | #{date}
+
+mixin renderPatientRow(patient)
+  - var strPatient = JSON.stringify(patient)
+  tr(data-src="#{strPatient}")
+      td=patient.name
+      td
+          +getFormattedDate(patient.dob)
+      td=patient.age
+      td=patient.sex
+      td
+          each phone in patient.phones
+              | <a href="tel:#{phone}">#{phone}</a> <br />
+      td
+          each email in patient.emails
+              | <a href="mailto:#{email}">#{email}</a> <br />
+      td(style='vertical-align: middle;')
+          span.pull-right
+              i.btn-action.btn-update.pull-left.fa.fa-pencil(data-id="#{patient._id}",data-toggle="modal", data-target='#create-update-dialog')
+              span.pull-left &nbsp;&nbsp;
+              i.btn-action.btn-delete.pull-left.fa.fa-close(data-id="#{patient._id}")
+
+mixin renderTestRow(test)
+  - var strTest = JSON.stringify(test)
+  tr(data-src="#{strTest}")
+    td=test.name
+    td=test.lower_limit
+    td=test.upper_limit
+    td=test.units
+    td(style='vertical-align: middle;')
+        span.pull-right
+            i.btn-action.btn-update.pull-left.fa.fa-pencil(data-id="#{test._id}",data-toggle="modal", data-target='#create-update-dialog')
+            span.pull-left &nbsp;&nbsp;
+            i.btn-action.btn-delete.pull-left.fa.fa-close(data-id="#{test._id}")

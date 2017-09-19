@@ -14,17 +14,15 @@ var packageSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    discount: {
-        amount: Number,
-        strategy: {
-            type: String,
-            enum: {
-                values: ['percentage', 'absolute'],
-                message: 'enum validator failed for path `{PATH}` with value `{VALUE}`'
-            }
+    discountAmount: Number,
+    discountStrategy: {
+        type: String,
+        enum: {
+            values: ['percentage', 'absolute'],
+            message: 'enum validator failed for path `{PATH}` with value `{VALUE}`'
         }
     },
-    tests: [ObjectId]
+    tests: [mongoose.Schema.ObjectId]
 });
 
 module.exports = mongoose.model('Package', packageSchema);

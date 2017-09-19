@@ -1,32 +1,24 @@
 var mongoose = require( 'mongoose' );
 var readline = require( 'readline' );
+var debug = require( 'debug' )( 'medilab:api:initdb' );
 
-var config = process.env.NODE_ENV === 'production' ? require( '../../env/config.prod.json' ) : require( '../../env/config.json' );
-
-var dbUri;
-if( process.env.NODE_ENV === 'production' ) {
-    dbUri = `${config.data_sources[0].protocol}://${config.data_sources[0].username}:${config.data_sources[0].password}@${config.data_sources[0].server}:${config.data_sources[0].port}/${config.data_sources[0].db}`;
-} else {
-    dbUri = `${config.data_sources[0].protocol}://${config.data_sources[0].server}:${config.data_sources[0].port}/${config.data_sources[0].db}`;
-}
-
-mongoose.connect( dbUri, { useMongoClient: true } );
+mongoose.connect( global.MediLab.DB_URI, { useMongoClient: true } );
 
 mongoose.connection.on('connected', function() {
-    console.log( 'Mongoose connected to ' + dbUri );
+    debug( 'Mongoose connected to %s', global.MediLab.DB_URI );
 });
 
 mongoose.connection.on('error', function( err ) {
-    console.log( 'Mongoose connection error ' + err );
+    debug( 'Mongoose connection error : %o', err );
 });
 
 mongoose.connection.on('disconnected', function() {
-    console.log( 'Mongoose disconnected from ' + dbUri );
+    debug( 'Mongoose disconnected from %s', global.MediLab.DB_URI );
 });
 
 var gracefulShutdown = function( msg, callback ) {
     mongoose.connection.close(function() {
-        console.log( 'Mongoose disconnected through ' + msg );
+        debug( 'Mongoose disconnected through %s', msg );
         callback();
     });
 };
@@ -62,3 +54,6 @@ process.once( 'SIGTERM', function() {
         process.exit( 0 );
     });
 });
+
+// Make sure models are available
+require( './init-models' );

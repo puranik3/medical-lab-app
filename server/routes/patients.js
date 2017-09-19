@@ -3,7 +3,7 @@ var router = express.Router();
 
 var patientsCtrl = require( '../controllers/patients' );
 
-/* GET patients listing. */
+/* GET patients listing */
 router.get( '/', patientsCtrl );
 
 module.exports = router;

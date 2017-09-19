@@ -7,6 +7,7 @@ html
     link(rel='stylesheet', href='/external/bootstrap-3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='/external/bootstrap-3.3.7/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/css/style.css')
+    block pagestyles
   body
     .navbar.navbar-default.navbar-fixed-top
       .container
@@ -25,7 +26,7 @@ html
               a(href='/about/') About
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/') Sign out
+              a#btn-logout(href='#') Sign out
     .container
       .row
         .col-xs-12
@@ -36,5 +37,12 @@ html
           hr
           small &copy; #{(new Date).getFullYear()} All rights reserved, XYZ Medical Systems Pvt. Ltd.
 
+    block globalcontent
+    
     script(src='/external/jquery-1.12.4/jquery.min.js')
     script(src='/external/bootstrap-3.3.7/js/bootstrap.min.js')
+    script(src='/js/config.js')
+    script(src='/js/services/auth.js')
+    script(src='/js/page-scripts/logout.js')
+
+    block pagescripts

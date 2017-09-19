@@ -1,0 +1,23 @@
+extends layout-menuless-header
+
+block pagescripts
+    script(src='/js/services/auth.js')
+    script(src='/js/page-scripts/login.js')
+
+block content
+  .page-header
+      h1 Login
+  form#frm-login.form-horizontal
+    .form-group
+      label.control-label.col-sm-3(for="email") Email id
+      .col-sm-9
+        input.form-control(type="text", name="email", id="email", placeholder="john.doe@example.com")
+    .form-group
+      label.control-label.col-sm-3(for="password") Password
+      .col-sm-9
+        input.form-control(type="password", name="password", id="password")
+    .form-group
+      .col-sm-offset-3.col-sm-9
+        input#btn-frm-reset.btn.btn-default(type="reset", value="Cancel")
+        | &nbsp;&nbsp;
+        input#btn-frm-submit.btn.btn-primary(type="submit", value="Login")

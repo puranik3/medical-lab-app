@@ -5,15 +5,13 @@ var medicalTestSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    limits: {
-        lower: {
-            type: Mixed,
-            required: false
-        },
-        upper: {
-            type: Mixed,
-            required: false
-        }
+    lower_limit: {
+        type: mongoose.Schema.Types.Mixed,
+        required: false
+    },
+    upper_limit: {
+        type: mongoose.Schema.Types.Mixed,
+        required: false
     },
     units: {
         type: String,

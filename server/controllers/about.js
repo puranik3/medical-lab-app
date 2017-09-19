@@ -1,4 +1,4 @@
-module.exports = function(req, res, next) {
+var renderView = function( req, res ) {
     res.render('generic', {
         title: 'About | Medical Lab Management System',
         pageHeader: 'About Medical Lab Management System',
@@ -6,4 +6,8 @@ module.exports = function(req, res, next) {
             <br /><br />
             Sit ullamco cupidatat fugiat ex exercitation. Esse deserunt ullamco nulla veniam enim quis laborum proident reprehenderit officia occaecat excepteur aliquip aliquip. Ipsum quis duis ut pariatur et nisi nulla quis tempor ipsum do dolore laboris.`
     });
+};
+
+module.exports = function(req, res, next) {
+    renderView( req, res );
 };

@@ -1,9 +1,35 @@
-var tests = require( '../../data/medical-test.json' ).tests;
+var request = require( 'request' );
+const debug = require('debug')('medilab:server:controllers:patients');
 
-module.exports = function(req, res, next) {
+var renderView = function( req, res, tests ) {
     res.render('tests', {
-        title: 'List of Test | Medical Lab Management System',
-        pageHeader: 'List of Tests',
+        title: 'List of Medical Tests | Medical Lab Management System',
+        pageHeader: 'List of Medical Tests',
         tests: tests
     });
+};
+
+module.exports = function(req, res, next) {
+    var requestOptions = {
+        url: global.MediLab.API_BASE_URL + '/medicaltests',
+        method: 'GET',
+        headers: req.headers, // pass on headers received when making an API call
+        json: {}
+    };
+
+    debug( 'requestOptions = %o', requestOptions );
+
+    request(
+        requestOptions,
+        function( err, response, tests ) {
+            if( err ) {
+                debug( 'error retrieving tests %o', err );
+                return next();
+            }
+
+            debug( 'tests = %o', tests );
+
+            renderView( req, res, tests );
+        }
+    );
 };

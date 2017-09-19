@@ -16,17 +16,17 @@ var patientSchema = new mongoose.Schema({
         type: String,
         enum: {
             values: ['male', 'female', 'other', 'unspecified'],
+            required: false,
             message: 'enum validator failed for path `{PATH}` with value `{VALUE}`'
         }
     },
-    contact: {
-        emails: {
-            // https://stackoverflow.com/questions/46155/how-to-validate-email-address-in-javascript
-            type: [String],
-            validate: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-        },
-        phones: [String]
-    }
+    emails: {
+        // https://stackoverflow.com/questions/46155/how-to-validate-email-address-in-javascript
+        type: [String],
+        required: false
+        //validate: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+    },
+    phones: [String]
 });
 
 module.exports = mongoose.model('Patient', patientSchema);

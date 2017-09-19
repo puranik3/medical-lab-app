@@ -14,17 +14,33 @@
 }
 
 /* line 13, ../sass/style.scss */
+.input-padded-right {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 36px;
+  margin-bottom: 10px;
+}
+
+/* line 21, ../sass/style.scss */
+.input-padded-right > .btn-action {
+  position: absolute;
+  top: 9px;
+  right: 5px;
+}
+
+/* line 27, ../sass/style.scss */
 .panel-heading {
   position: relative;
 }
 
-/* line 17, ../sass/style.scss */
+/* line 31, ../sass/style.scss */
 .panel-title-container {
   width: 100%;
   padding-right: 60px;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 36, ../sass/style.scss */
 .panel-action-container {
   position: absolute;
   top: 10px;
@@ -32,18 +48,18 @@
   width: 45px;
 }
 
-/* line 29, ../sass/style.scss */
+/* line 43, ../sass/style.scss */
 .panel-title[data-toggle="collapse"] {
   cursor: pointer;
 }
 
-/* line 33, ../sass/style.scss */
+/* line 47, ../sass/style.scss */
 body {
   padding-top: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/* line 38, ../sass/style.scss */
+/* line 52, ../sass/style.scss */
 .package-tests {
   margin-top: 30px;
 }

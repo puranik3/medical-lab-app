@@ -3,7 +3,7 @@ var router = express.Router();
 
 var aboutCtrl =  require( '../controllers/about' );
 
-/* GET about page. */
+/* GET about page */
 router.get('/', aboutCtrl);
 
 module.exports = router;

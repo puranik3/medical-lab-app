@@ -1,8 +1,18 @@
 extends layout
 
+include _includes/sharedHtmlFunctions
+
+block pagescripts
+    script(src='/js/services/crud.js')
+    script(src='/js/services/test.js')
+    script(src='/js/page-scripts/tests.js')
+
 block content
     .page-header
-        h1=pageHeader
+        h1 #{pageHeader}
+            button#btn-create.btn.btn-primary.pull-right(role='button', data-toggle="modal", data-target='#create-update-dialog')
+                i.fa.fa-plus
+                | &nbsp; Add test
     
     .table-responsive
         table.table.table-bordered.table-striped.table-hover
@@ -12,10 +22,37 @@ block content
                     th Lower Limit
                     th Upper Limit
                     th Units
+                    th Actions
             tbody
                 each test in tests
-                    tr
-                        td=test.name
-                        td=test.limits.lower
-                        td=test.limits.upper
-                        td=test.units
+                    +renderTestRow(test)
+
+block globalcontent
+    #create-update-dialog.modal.fade
+        .modal-dialog
+            .modal-content
+                .modal-header.bg-primary
+                    button.close(type="button", data-dismiss="modal" aria-hidden="true") &times;
+                    h4.modal-title Add/Update Test Details
+                .modal-body
+                    form.form-horizontal
+                        .form-group
+                            label.control-label.col-md-4(for="name") Name
+                            .col-md-8
+                                input#name.form-control(type="text", placeholder="eg. Fasting Blood Sugar")
+                        .form-group
+                            label.control-label.col-md-4(for="lower_limit") Lower Limit
+                            .col-md-8
+                                input#lower_limit.form-control(type="text", placeholder="70 (for example)")
+                        .form-group
+                            label.control-label.col-md-4(for="upper_limit") Upper Limit
+                            .col-md-8
+                                input#upper_limit.form-control(type="text", placeholder="110 (for example)")
+                        .form-group
+                            label.control-label.col-md-4(for="units") Units
+                            .col-md-8
+                                input#units.form-control(type="text", placeholder="mg/dl (for example)")
+                .modal-footer
+                    button.btn.btn-default(type="button", data-dismiss="modal") Cancel
+                    | &nbsp;
+                    button#btn-create-update.btn.btn-primary(type="button") Add/Update
