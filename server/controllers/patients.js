@@ -17,15 +17,6 @@ module.exports = function(req, res, next) {
         json: {}
     };
 
-    /*if( req.signedCookies['connect.sid'] && req.signedCookies['connect.sid'] ) {
-        requestOptions.headers = requestOptions.headers || {};
-        requestOptions.headers.Cookie = 'connect.sid=' + req.signedCookies['connect.sid'];
-    }*/
-
-    // pass Authorization token received when making an API call
-    /*if(  ) {
-    }*/
-
     debug( 'requestOptions = %o', requestOptions );
 
     request(

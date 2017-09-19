@@ -3,20 +3,25 @@ var mongoose = require( 'mongoose' );
 var _ = require( 'lodash' );
 var MedicalTest = mongoose.model( 'MedicalTest' );
 var utils = require( '../../utils/utils' );
+var debug = require( 'debug' )( 'medilab:api:controllers:medical-tests' );
 
 module.exports = {
     find: function(req, res, next) {
+        debug( 'start find()' );
         MedicalTest
             .find()
             .exec(function( err, medicalTests ) {
                 if( !medicalTests ) {
+                    debug( 'end find() : Medical tests not found' );
                     return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Medical tests not found' );
                 }
     
                 if( err ) {
+                    debug( 'end find() : %s', err.message );
                     return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
                 }
 
+                debug( 'end find() : medicalTests = %O', medicalTests );
                 res.status( httpStatus.OK ).json( medicalTests );
             });
     },

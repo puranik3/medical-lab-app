@@ -3,20 +3,25 @@ var mongoose = require( 'mongoose' );
 var _ = require( 'lodash' );
 var Patient = mongoose.model( 'Patient' );
 var utils = require( '../../utils/utils' );
+var debug = require( 'debug' )( 'medilab:api:controllers:patients' );
 
 module.exports = {
     find: function(req, res, next) {
+        debug( 'start find()' );
         Patient
             .find()
             .exec(function( err, patients ) {
                 if( !patients ) {
+                    debug( 'end find() : Patients not found' );
                     return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Patients not found' );
                 }
     
                 if( err ) {
+                    debug( 'end find() : %s', err.message );
                     return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
                 }
 
+                debug( 'end find() : patients = %O', patients );
                 res.status( httpStatus.OK ).json( patients );
             });
     },
