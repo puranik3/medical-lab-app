@@ -27,12 +27,14 @@ module.exports = function(req, res, next) {
             if( err ) {
                 wlogger.info( 'medilab:server:controllers:patients', 'error retrieving patients = ', JSON.stringify( err ) );
                 debug( 'error retrieving patients %o', err );
-                //return next();
+                return next();
+                /*
                 res.render('patients', {
                     title: 'List of Patients | Medical Lab Management System',
                     pageHeader: JSON.stringify( err ) + JSON.stringify( requestOptions ),
                     patients: []
                 });
+                */
             }
 
             wlogger.info( 'medilab:server:controllers:patients', 'patients = ', JSON.stringify( patients ) );
