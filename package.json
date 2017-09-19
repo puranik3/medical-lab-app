@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "debug": "DEBUG=medilab:* node ./bin/www"
+    "debug": "DEBUG=medilab:* nodemon"
   },
   "engines": {
     "node": "~8.4.0",
