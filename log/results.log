@@ -1,6 +1,6 @@
-{"level":"info","message":"Hello world","timestamp":"18:11:28"}
-{"level":"info","message":"Hello world","timestamp":"18:13:09"}
-{"level":"info","message":"Hello world","timestamp":"18:13:33"}
-{"level":"info","message":"start find()","timestamp":"18:13:50"}
-{"level":"info","message":"end find() : patients =  [{\"_id\":\"59c0fe95c3408e99d1934cfc\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]}]","timestamp":"18:13:51"}
-{"level":"info","message":"Hello world","timestamp":"18:17:20"}
+{"level":"info","message":"Hello world","timestamp":"18:27:57"}
+{"url":"http://127.0.0.1:3000/api/patients","method":"GET","headers":{"host":"localhost:3000","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","dnt":"1","referer":"http://localhost:3000/","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.8,la;q=0.6","cookie":"connect.sid=s%3A5y3R-aHO6_kynAQ1kIKFSzi6DAQqhyTi.OC%2Bx6kO5m%2BC1sWS2DL2d4oGBao1tIozGxzbipU9qfsQ"},"json":{},"level":"info","message":"medilab:server:controllers:patients requestOptions = ","timestamp":"18:28:05"}
+{"level":"info","message":"start find()","timestamp":"18:28:06"}
+{"level":"info","message":"end find() : patients =  [{\"_id\":\"59c0fe95c3408e99d1934cfc\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]}]","timestamp":"18:28:06"}
+{"level":"info","message":"medilab:server:controllers:patients patients =  [{\"_id\":\"59c0fe95c3408e99d1934cfc\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]}]","timestamp":"18:28:06"}
+{"level":"info","message":"Hello world","timestamp":"18:36:57"}
