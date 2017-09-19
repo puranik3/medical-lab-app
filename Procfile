@@ -1,1 +1,1 @@
-web: npm debug
+web: npm start
