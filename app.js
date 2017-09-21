@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 var session = require('express-session');
 var MongoStore = require( 'connect-mongo' )( session );
 var path = require('path');
@@ -23,6 +24,9 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'server', 'views'));
 app.set('view engine', 'jade');
+
+// enable CORS
+app.use(cors());
 
 // log requests and responses using morgan
 if( MediLab.environment === 'production' ) {
