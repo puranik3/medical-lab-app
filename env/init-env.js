@@ -23,11 +23,12 @@ function normalizePort(val) {
 var appPort, apiBaseUrl, dbUri;
 
 appPort = normalizePort( process.env.PORT || config.app && config.app.port || 3000 );
-apiBaseUrl = `${config.apiBaseUrl}:${appPort}/api`;
 
 if( process.env.NODE_ENV === 'production' ) {
+    apiBaseUrl = `${config.apiBaseUrl}/api`;
     dbUri = `${config.data_sources[0].protocol}://${config.data_sources[0].username}:${config.data_sources[0].password}@${config.data_sources[0].server}:${config.data_sources[0].port}/${config.data_sources[0].db}`;
 } else {
+    apiBaseUrl = `${config.apiBaseUrl}:${appPort}/api`;
     dbUri = `${config.data_sources[0].protocol}://${config.data_sources[0].server}:${config.data_sources[0].port}/${config.data_sources[0].db}`;
 }
 
