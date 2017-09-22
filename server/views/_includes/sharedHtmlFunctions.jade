@@ -1,11 +1,11 @@
 mixin showPackageDiscountCurrencyIfApplicable(package)
-    - if( package.discount.strategy === "currency" )
+    - if( package.discountStrategy === "currency" )
       span
         | #{package.currency}
       &nbsp;
 
 mixin showPackageDiscountPercentageIfApplicable(package)
-    - if( package.discount.strategy === "percentage" )
+    - if( package.discountStrategy === "percentage" )
       span
         | %
 
@@ -45,3 +45,38 @@ mixin renderTestRow(test)
             i.btn-action.btn-update.pull-left.fa.fa-pencil(data-id="#{test._id}",data-toggle="modal", data-target='#create-update-dialog')
             span.pull-left &nbsp;&nbsp;
             i.btn-action.btn-delete.pull-left.fa.fa-close(data-id="#{test._id}")
+
+mixin renderPackagePanel(package, index)
+    - var strPackage = JSON.stringify(package)
+    .panel.panel-primary(data-src="#{strPackage}")
+        .panel-heading
+            .panel-title-container
+                .panel-title(data-target='#package-#{index}', data-toggle="collapse", data-parent="#package-list")
+                    .row
+                        .col-xs-1
+                            span.fa.fa-caret-right
+                        .col-xs-5 Name: #{package.name}
+                        .col-xs-3 Price: #{package.currency} #{package.price}
+                        .col-xs-3 
+                            span Discount: 
+                            +showPackageDiscountCurrencyIfApplicable(package)
+                            span #{package.discountAmount}
+                            +showPackageDiscountPercentageIfApplicable(package)
+                .panel-action-container
+                    span.pull-right
+                        i.btn-action.btn-update.pull-left.fa.fa-pencil(data-id="#{package._id}",data-toggle="modal", data-target='#create-update-dialog')
+                        span.pull-left &nbsp;&nbsp;
+                        i.btn-action.btn-delete.pull-left.fa.fa-close(data-id="#{package._id}")
+        .collapse.panel-collapse(id="package-#{index}")
+            .panel-body
+                span.text-primary Tests in this package
+                <br /><br />
+                ul.list-group
+                    - if( package.tests && package.tests.length )
+                        each test, index in package.tests
+                            li.list-group-item
+                                | #{index + 1}. #{test.name}
+                                span.close.pull-right(title="Remove test from package") &times;
+                button.btn.btn-primary.pull-right(role="button")
+                    i.fa.fa-plus
+                    | &nbsp; Add tests

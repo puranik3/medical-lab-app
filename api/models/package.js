@@ -12,7 +12,8 @@ var packageSchema = new mongoose.Schema({
     },
     currency: {
         type: String,
-        required: true
+        required: true,
+        default: 'INR'
     },
     discountAmount: Number,
     discountStrategy: {
