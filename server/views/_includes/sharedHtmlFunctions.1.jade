@@ -48,7 +48,7 @@ mixin renderTestRow(test)
 
 mixin renderPackagePanel(package, index)
     - var strPackage = JSON.stringify(package)
-    .panel.panel-primary.panel-package(data-src="#{strPackage}")
+    .panel.panel-primary(data-src="#{strPackage}")
         .panel-heading
             .panel-title-container
                 .panel-title(data-target='#package-#{index}', data-toggle="collapse", data-parent="#package-list")
@@ -71,7 +71,12 @@ mixin renderPackagePanel(package, index)
             .panel-body
                 span.text-primary Tests in this package
                 <br /><br />
-                ul.list-group.list-group-tests
-                button.btn-add-tests.btn.btn-primary.pull-right(role="button",data-id="#{package._id}",data-toggle="modal", data-target='#add-tests-dialog')
+                ul.list-group
+                    - if( package.tests && package.tests.length )
+                        each test, index in package.tests
+                            li.list-group-item
+                                | #{index + 1}. #{test.name}
+                                span.btn-delete-test.close.pull-right(data-id="#{package._id}", title="Remove test from package") &times;
+                button.btn-add-tests.btn.btn-primary.pull-right(role="button")
                     i.fa.fa-plus
                     | &nbsp; Add tests

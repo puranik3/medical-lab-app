@@ -2,6 +2,7 @@ var httpStatus = require( 'http-status' );
 var mongoose = require( 'mongoose' );
 var _ = require( 'lodash' );
 var Package = mongoose.model( 'Package' );
+var MedicalTest = mongoose.model( 'MedicalTest' );
 var utils = require( '../../utils/utils' );
 var debug = require( 'debug' )( 'medilab:api:controllers:packages' );
 var wlogger = require('../../server/init-logger' );
@@ -25,34 +26,9 @@ module.exports = {
                     return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
                 }
 
-                if( packages.tests ) {
-                    MedicalTests
-                        .find( { _id: { $in: packages.tests } } )
-                        .exec(function( err, tests ) {
-                            if( !tests ) {
-                                wlogger.info( 'end find() : Tests in the package not found - error retrieving package information' );
-                                debug( 'end find() : Tests in the package not found - error retrieving package information' );
-                                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Tests in the package not found' );
-                            }
-                
-                            if( err ) {
-                                wlogger.info( 'end find() : ', err.message );
-                                debug( 'end find() : %s', err.message );
-                                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
-                            }
-
-                            // replace tests array with ObjectIds with tests array with tests data
-                            packages.tests = tests;
-
-                            wlogger.info( 'end find() : packages = ', JSON.stringify( packages ) );
-                            debug( 'end find() : packages = %O', packages );
-                            res.status( httpStatus.OK ).json( packages );
-                        });
-                } else {
-                    wlogger.info( 'end find() : packages = ', JSON.stringify( packages ) );
-                    debug( 'end find() : packages = %O', packages );
-                    res.status( httpStatus.OK ).json( packages );
-                } 
+                wlogger.info( 'end find() : packages = ', JSON.stringify( packages ) );
+                debug( 'end find() : packages = %O', packages );
+                res.status( httpStatus.OK ).json( packages );
             });
     },
     findById : function(req, res, next) {
@@ -147,6 +123,63 @@ module.exports = {
                 res.status(httpStatus.NO_CONTENT).json(null);
             });
     },
+    findMedicalTests: function(req, res, next) {
+        var packageId = ( req.params && req.params.packageId ) || 0;
+
+        if( !packageId ) {
+            return utils.sendJsonErrorResponse( req, res, httpStatus.BAD_REQUEST, 'Package id missing in request' );
+        }
+
+        wlogger.info( 'start findMedicalTests()' );
+        debug( 'start findMedicalTests()' );
+        Package
+            .findById( packageId )
+            .exec(function( err, package ) {
+                if( !package ) {
+                    wlogger.info( '1. end findMedicalTests() : Package with given id not found' );
+                    debug( '1. end findMedicalTests() : Package with given id not found' );
+                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Package with given id not found' );
+                }
+    
+                if( err ) {
+                    wlogger.info( '2. end findMedicalTests() : ', err.message );
+                    debug( '2. end findMedicalTests() : %s', err.message );
+                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
+                }
+
+                if( package.tests ) {
+                    MedicalTest
+                        .find( { _id: { $in: package.tests } } )
+                        .exec(function( err, tests ) {
+                            if( !tests ) {
+                                wlogger.info( '3. end findMedicalTests() : Tests in the package not found - error retrieving package information' );
+                                debug( '3. end findMedicalTests() : Tests in the package not found - error retrieving package information' );
+                                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Tests in the package not found' );
+                            }
+                
+                            if( err ) {
+                                wlogger.info( '4. end findMedicalTests() : ', err.message );
+                                debug( '4. end findMedicalTests() : %s', err.message );
+                                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
+                            }
+
+                            // replace tests array with ObjectIds with tests array with tests data
+                            package.tests.length = 0;
+                            [].push.apply( package.tests, tests );
+
+                            console.log( 'tests = %O', tests );
+
+                            wlogger.info( '5. end findMedicalTests() : package = ', JSON.stringify( package ) );
+                            debug( '5. end findMedicalTests() : package = %O', package );
+                            res.status( httpStatus.OK ).json( package );
+                        });
+                } else {
+                    wlogger.info( '6. end findMedicalTests() : package = ', JSON.stringify( package ) );
+                    debug( '6. end findMedicalTests() : package = %O', package );
+                    res.status( httpStatus.OK ).json( package );
+                } 
+            });
+    },
     // adds medical tests whose ids are passed in the request body - existing tests will NOT be removed by this method
     addMedicalTests: function(req, res, next) {
         var packageId = ( req.params && req.params.packageId ) || 0;
@@ -171,9 +204,19 @@ module.exports = {
                     return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
                 }
 
-                package.tests = _.union( package.tests, medicalTestIdsReq.map(function( id ) { 
-                    return mongoose.Schema.ObjectId( id );
-                }));
+                console.log( 'medicalTestIdsReq[0] = %s', medicalTestIdsReq[0] );
+                // https://stackoverflow.com/questions/15102532/mongo-find-through-list-of-ids
+                package.tests = _.unionBy(
+                    package.tests,
+                    medicalTestIdsReq.map(function( id ) { 
+                        return mongoose.Types.ObjectId( id );
+                    }),
+                    function( objectId ) {
+                        return objectId.toString()
+                    }
+                );
+
+                debug( 'package.tests = %o', package.tests );
 
                 package.save(function( err, packageNew ) {
                     if( err ) {
@@ -207,7 +250,14 @@ module.exports = {
                     return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
                 }
 
-                _.pullAll( package.tests, [ medicalTestId ] );
+                /*_.remove(package.tests, function( objectId ) {
+                    return objectId.toString() === medicalTestId;
+                });*/
+                var index = _.findIndex(package.tests, function( objectId ) {
+                    return objectId.toString() === medicalTestId;
+                });
+                package.tests.splice(index, 1);
+                debug( 'package after splice = %o', package );
 
                 package.save(function( err, packageNew ) {
                     if( err ) {

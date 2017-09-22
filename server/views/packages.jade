@@ -5,7 +5,9 @@ include _includes/sharedHtmlFunctions
 block pagescripts
     script(src='/js/services/crud.js')
     script(src='/js/services/package.js')
+    script(src='/js/services/package-test.js')
     script(src='/js/page-scripts/packages.js')
+    script(src='/js/page-scripts/packages-tests.js')
 
 block content
     .page-header
@@ -49,3 +51,22 @@ block globalcontent
                     button.btn.btn-default(type="button", data-dismiss="modal") Cancel
                     | &nbsp;
                     button#btn-create-update.btn.btn-primary(type="button") Add/Update
+
+    #add-tests-dialog.modal.fade
+        .modal-dialog
+            .modal-content
+                .modal-header.bg-primary
+                    button.close(type="button", data-dismiss="modal" aria-hidden="true") &times;
+                    h4.modal-title Select &amp; Add Test to Package
+                .modal-body
+                    form.form-horizontal
+                        .form-group
+                            label.control-label.col-md-4(for="tests") Tests
+                            .col-md-8
+                                select#tests.form-control
+                                    each test in tests
+                                        option(value="#{test._id}") #{test.name}
+                .modal-footer
+                    button.btn.btn-default(type="button", data-dismiss="modal") Cancel
+                    | &nbsp;
+                    button#btn-add-tests.btn.btn-primary(type="button") Add Test
