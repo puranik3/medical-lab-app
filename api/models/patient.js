@@ -29,4 +29,7 @@ var patientSchema = new mongoose.Schema({
     phones: [String]
 });
 
-module.exports = mongoose.model('Patient', patientSchema);
+module.exports = {
+    schema: patientSchema,
+    model: mongoose.model('Patient', patientSchema)
+};

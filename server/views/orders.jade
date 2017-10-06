@@ -1,0 +1,72 @@
+extends layout
+
+include _includes/sharedHtmlFunctions
+
+block pagescripts
+    script(src='/js/services/crud.js')
+    script(src='/js/services/order.js')
+    script(src='/js/page-scripts/orders.js')
+
+block content
+    .page-header
+        h1 #{pageHeader}
+            button#btn-create.btn.btn-primary.pull-right(role='button', data-toggle="modal", data-target='#place-order-dialog')
+                i.fa.fa-plus
+                | &nbsp; Place new order
+    
+    .table-responsive
+        table.table.table-bordered.table-striped.table-hover
+            thead.bg-primary
+                tr
+                    th Patient id
+                    th Date Created
+                    th Date Last Modified
+                    th Order Status
+                    th Report Status
+                    th Report Created 
+                    th Report Last Modified 
+            tbody
+                each order in orders
+                    +renderOrderRow(order)
+
+block globalcontent
+    #place-order-dialog.modal.fade
+        .modal-dialog
+            .modal-content
+                .modal-header.bg-primary
+                    button.close(type="button", data-dismiss="modal" aria-hidden="true") &times;
+                    h4.modal-title Place New Order
+                .modal-body
+                    form.form-horizontal
+                        .form-group
+                            label.control-label.col-md-4(for="name") Name
+                            .col-md-8
+                                input#name.form-control(type="text", placeholder="eg. Ravi Kumar")
+                        .form-group
+                            label.control-label.col-md-4(for="dob") Date of Birth
+                            .col-md-8
+                                input#dob.form-control(type="date", placeholder="Select a date")
+                        .form-group
+                            label.control-label.col-md-4(for="sex") Sex
+                            .col-md-8
+                                select#sex.form-control
+                                    option(value="male") Male
+                                    option(value="female") Female
+                                    option(value="other") Other
+                                    option(value="unspecified") Not specified
+                        .form-group
+                            label.control-label.col-md-4(for="phones") Phone number(s)
+                            #phones.col-md-8
+                                .input-padded-right
+                                    input.form-control(type="tel", placeholder="eg. +91-9448441480")
+                                    i.btn-action.btn-add-phone.fa.fa-plus
+                        .form-group
+                            label.control-label.col-md-4(for="emails") Email id(s)
+                            #emails.col-md-8
+                                .input-padded-right
+                                    input.form-control(type="email", placeholder="eg. ravi.kumar@gmail.com")
+                                    i.btn-action.btn-add-email.fa.fa-plus
+                .modal-footer
+                    button.btn.btn-default(type="button", data-dismiss="modal") Cancel
+                    | &nbsp;
+                    button#btn-create-update.btn.btn-primary(type="button") Add/Update

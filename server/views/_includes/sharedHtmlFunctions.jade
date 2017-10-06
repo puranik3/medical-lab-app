@@ -29,6 +29,8 @@ mixin renderPatientRow(patient)
               | <a href="mailto:#{email}">#{email}</a> <br />
       td(style='vertical-align: middle;')
           span.pull-right
+              i.btn-action.btn-order.pull-left.fa.fa-file-text(data-id="#{patient._id}",data-toggle="modal", data-target='#place-order-dialog')
+              span.pull-left &nbsp;&nbsp;
               i.btn-action.btn-update.pull-left.fa.fa-pencil(data-id="#{patient._id}",data-toggle="modal", data-target='#create-update-dialog')
               span.pull-left &nbsp;&nbsp;
               i.btn-action.btn-delete.pull-left.fa.fa-close(data-id="#{patient._id}")

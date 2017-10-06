@@ -19,4 +19,7 @@ var medicalTestSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('MedicalTest', medicalTestSchema);
+module.exports = {
+    schema: medicalTestSchema,
+    model: mongoose.model('MedicalTest', medicalTestSchema)    
+};

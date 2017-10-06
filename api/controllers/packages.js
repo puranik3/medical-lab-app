@@ -205,6 +205,7 @@ module.exports = {
                 }
 
                 console.log( 'medicalTestIdsReq[0] = %s', medicalTestIdsReq[0] );
+                
                 // https://stackoverflow.com/questions/15102532/mongo-find-through-list-of-ids
                 package.tests = _.unionBy(
                     package.tests,

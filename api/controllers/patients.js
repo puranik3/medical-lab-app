@@ -2,6 +2,7 @@ var httpStatus = require( 'http-status' );
 var mongoose = require( 'mongoose' );
 var _ = require( 'lodash' );
 var Patient = mongoose.model( 'Patient' );
+var Order = mongoose.model( 'Order' );
 var utils = require( '../../utils/utils' );
 var debug = require( 'debug' )( 'medilab:api:controllers:patients' );
 var wlogger = require('../../server/init-logger' );
@@ -121,5 +122,39 @@ module.exports = {
 
                 res.status(httpStatus.NO_CONTENT).json(null);
             });
+    },
+    orders: {
+        find: function(req, res, next) {
+            var patientId = ( req.params && req.params.patientId ) || 0;
+            
+            if( !patientId ) {
+                return utils.sendJsonErrorResponse( req, res, httpStatus.BAD_REQUEST, 'Patient id missing in request' );
+            }
+            
+            wlogger.info( 'start orders.find()' );
+            debug( 'start orders.find()' );
+            Order
+                .find( { patientId: patientId } )
+                .exec(function( err, orders ) {
+                    if( !orders ) {
+                        wlogger.info( '1. end orders.find() : Orders for given patientId not found' );
+                        debug( '1. end orders.find() : Orders for given patientId not found' );
+                        return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Order for given patientId not found' );
+                    }
+        
+                    if( err ) {
+                        wlogger.info( '2. end orders.find() : ', err.message );
+                        debug( '2. end orders.find() : %s', err.message );
+                        return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
+                    }
+
+                    wlogger.info( 'end orders.find() : orders = ', JSON.stringify( orders ) );
+                    debug( 'end orders.find() : orders = %O', orders );
+                    res.status( httpStatus.OK ).json( orders );
+            });        
+        },
+        create: function(req, res, next) {
+            // @todo Implement if required
+        }
     }
 };

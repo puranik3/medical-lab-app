@@ -948,3 +948,430 @@
 {"level":"info","message":"medilab:server:controllers:packages packages = , [{\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":36,\"tests\":[\"59bb681515af160b461a9880\",\"59bb6ca615af160b461a9884\"],\"currency\":\"INR\",\"price\":1200}]   tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6c8d15af160b461a9883\",\"name\":\"Blood Pressure (Systolic)\",\"lower_limit\":70,\"upper_limit\":150,\"units\":\"bpm\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"20:51:47"}
 {"level":"info","message":"start findMedicalTests()","timestamp":"20:51:48"}
 {"level":"info","message":"5. end findMedicalTests() : package =  {\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":36,\"tests\":[{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}],\"currency\":\"INR\",\"price\":1200}","timestamp":"20:51:48"}
+{"level":"info","message":"Hello world","timestamp":"07:16:36"}
+{"url":"http://127.0.0.1:3000/api/patients","method":"GET","headers":{"host":"localhost:3000","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","dnt":"1","referer":"http://localhost:3000/","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.8,la;q=0.6","cookie":"connect.sid=s%3AGBKGqQAd8Cd3XezxkPfubQMP0pm70Cud.2hxmGqg0wKN%2BGHuJ54JbWgkYjjnr5%2F4tOKeY1I8s4Vo"},"json":{},"level":"info","message":"medilab:server:controllers:patients requestOptions = ","timestamp":"07:17:54"}
+{"level":"info","message":"start find()","timestamp":"07:17:54"}
+{"level":"info","message":"end find() : patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"07:17:54"}
+{"level":"info","message":"medilab:server:controllers:patients patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"07:17:54"}
+{"level":"info","message":"Hello world","timestamp":"08:01:08"}
+{"level":"info","message":"Hello world","timestamp":"08:01:26"}
+{"level":"info","message":"Hello world","timestamp":"08:05:17"}
+{"level":"info","message":"Hello world","timestamp":"08:05:32"}
+{"level":"info","message":"Hello world","timestamp":"08:08:26"}
+{"level":"info","message":"Hello world","timestamp":"08:09:33"}
+{"level":"info","message":"Hello world","timestamp":"08:29:47"}
+{"level":"info","message":"Hello world","timestamp":"08:29:52"}
+{"level":"info","message":"Hello world","timestamp":"08:30:11"}
+{"level":"info","message":"Hello world","timestamp":"08:30:31"}
+{"level":"info","message":"Hello world","timestamp":"08:32:49"}
+{"level":"info","message":"Hello world","timestamp":"08:40:28"}
+{"level":"info","message":"Hello world","timestamp":"08:41:44"}
+{"level":"info","message":"Hello world","timestamp":"08:56:37"}
+{"level":"info","message":"Hello world","timestamp":"08:56:59"}
+{"level":"info","message":"Hello world","timestamp":"08:57:15"}
+{"level":"info","message":"Hello world","timestamp":"08:57:40"}
+{"level":"info","message":"Hello world","timestamp":"09:45:04"}
+{"level":"info","message":"Hello world","timestamp":"09:45:11"}
+{"level":"info","message":"Hello world","timestamp":"09:45:55"}
+{"level":"info","message":"Hello world","timestamp":"09:46:07"}
+{"level":"info","message":"Hello world","timestamp":"09:46:22"}
+{"level":"info","message":"Hello world","timestamp":"09:46:41"}
+{"level":"info","message":"Hello world","timestamp":"09:48:43"}
+{"level":"info","message":"Hello world","timestamp":"09:49:44"}
+{"level":"info","message":"Hello world","timestamp":"09:49:47"}
+{"level":"info","message":"Hello world","timestamp":"09:50:18"}
+{"level":"info","message":"Hello world","timestamp":"09:50:20"}
+{"level":"info","message":"Hello world","timestamp":"09:50:30"}
+{"level":"info","message":"Hello world","timestamp":"09:52:31"}
+{"level":"info","message":"Hello world","timestamp":"09:52:50"}
+{"level":"info","message":"Hello world","timestamp":"09:54:51"}
+{"level":"info","message":"Hello world","timestamp":"09:55:01"}
+{"level":"info","message":"Hello world","timestamp":"09:55:11"}
+{"level":"info","message":"Hello world","timestamp":"10:13:29"}
+{"level":"info","message":"Hello world","timestamp":"10:24:17"}
+{"level":"info","message":"Hello world","timestamp":"10:25:32"}
+{"level":"info","message":"Hello world","timestamp":"10:50:43"}
+{"level":"info","message":"Hello world","timestamp":"10:50:48"}
+{"level":"info","message":"Hello world","timestamp":"10:51:33"}
+{"level":"info","message":"Hello world","timestamp":"10:51:37"}
+{"level":"info","message":"Hello world","timestamp":"10:52:00"}
+{"level":"info","message":"Hello world","timestamp":"10:53:25"}
+{"level":"info","message":"Hello world","timestamp":"10:58:23"}
+{"level":"info","message":"Hello world","timestamp":"11:19:12"}
+{"level":"info","message":"Hello world","timestamp":"11:19:35"}
+{"level":"info","message":"Hello world","timestamp":"11:20:04"}
+{"level":"info","message":"Hello world","timestamp":"11:20:28"}
+{"level":"info","message":"Hello world","timestamp":"11:21:41"}
+{"level":"info","message":"Hello world","timestamp":"11:23:03"}
+{"level":"info","message":"Hello world","timestamp":"11:23:19"}
+{"level":"info","message":"Hello world","timestamp":"11:23:42"}
+{"level":"info","message":"Hello world","timestamp":"11:25:31"}
+{"level":"info","message":"Hello world","timestamp":"11:48:24"}
+{"level":"info","message":"Hello world","timestamp":"12:12:31"}
+{"level":"info","message":"Hello world","timestamp":"17:54:44"}
+{"level":"info","message":"Hello world","timestamp":"17:54:57"}
+{"level":"info","message":"Hello world","timestamp":"17:55:11"}
+{"level":"info","message":"Hello world","timestamp":"17:56:17"}
+{"level":"info","message":"Hello world","timestamp":"17:56:30"}
+{"level":"info","message":"Hello world","timestamp":"07:34:47"}
+{"level":"info","message":"start orders.find()","timestamp":"07:48:22"}
+{"level":"info","message":"start orders.find()","timestamp":"07:50:50"}
+{"level":"info","message":"start orders.find()","timestamp":"07:53:20"}
+{"level":"info","message":"Hello world","timestamp":"07:54:57"}
+{"level":"info","message":"start orders.find()","timestamp":"07:55:06"}
+{"level":"info","message":"end orders.find() : orders =  []","timestamp":"07:55:06"}
+{"level":"info","message":"start find()","timestamp":"08:02:00"}
+{"level":"info","message":"end find() : patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"08:02:00"}
+{"level":"info","message":"Hello world","timestamp":"08:49:20"}
+{"level":"info","message":"start find()","timestamp":"09:10:12"}
+{"level":"info","message":"end find() : packages =  [{\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":36,\"tests\":[\"59bb681515af160b461a9880\",\"59bb6ca615af160b461a9884\"],\"currency\":\"INR\",\"price\":1200}]","timestamp":"09:10:12"}
+{"url":"http://127.0.0.1:3000/api/packages","method":"GET","headers":{"host":"localhost:3000","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","dnt":"1","referer":"http://localhost:3000/","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.8,la;q=0.6","cookie":"connect.sid=s%3AGxvArSqcZXcnJgz6KnfxUF_XoVsjrr63.1wecx%2BBLL0Pt1aMO5OFgmy5O1GSFdkrtSfK21%2FepfCQ"},"json":{},"level":"info","message":"medilab:server:controllers:packages requestOptionsPackages = ","timestamp":"09:11:34"}
+{"level":"info","message":"start find()","timestamp":"09:11:34"}
+{"level":"info","message":"end find() : packages =  [{\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":36,\"tests\":[\"59bb681515af160b461a9880\",\"59bb6ca615af160b461a9884\"],\"currency\":\"INR\",\"price\":1200}]","timestamp":"09:11:34"}
+{"level":"info","message":"medilab:server:controllers:packages packages = , [{\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":36,\"tests\":[\"59bb681515af160b461a9880\",\"59bb6ca615af160b461a9884\"],\"currency\":\"INR\",\"price\":1200}]   tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6c8d15af160b461a9883\",\"name\":\"Blood Pressure (Systolic)\",\"lower_limit\":70,\"upper_limit\":150,\"units\":\"bpm\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"09:11:34"}
+{"level":"info","message":"Hello world","timestamp":"09:42:32"}
+{"level":"info","message":"Hello world","timestamp":"09:43:03"}
+{"level":"info","message":"Hello world","timestamp":"09:43:05"}
+{"level":"info","message":"Hello world","timestamp":"09:43:25"}
+{"level":"info","message":"Hello world","timestamp":"09:43:32"}
+{"level":"info","message":"Hello world","timestamp":"09:59:32"}
+{"level":"info","message":"Hello world","timestamp":"09:59:39"}
+{"level":"info","message":"Hello world","timestamp":"09:59:58"}
+{"level":"info","message":"Hello world","timestamp":"10:17:29"}
+{"level":"info","message":"Hello world","timestamp":"10:24:53"}
+{"level":"info","message":"Hello world","timestamp":"11:14:50"}
+{"level":"info","message":"Hello world","timestamp":"11:41:57"}
+{"level":"info","message":"Hello world","timestamp":"11:43:58"}
+{"level":"info","message":"Hello world","timestamp":"11:44:13"}
+{"level":"info","message":"Hello world","timestamp":"11:48:34"}
+{"level":"info","message":"Hello world","timestamp":"11:48:43"}
+{"level":"info","message":"Hello world","timestamp":"11:53:41"}
+{"level":"info","message":"Hello world","timestamp":"11:54:01"}
+{"level":"info","message":"Hello world","timestamp":"12:01:54"}
+{"level":"info","message":"Hello world","timestamp":"12:10:44"}
+{"level":"info","message":"start find()","timestamp":"12:12:10"}
+{"level":"info","message":"end find() : packages =  [{\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":36,\"tests\":[\"59bb681515af160b461a9880\",\"59bb6ca615af160b461a9884\"],\"currency\":\"INR\",\"price\":1200}]","timestamp":"12:12:10"}
+{"level":"info","message":"Hello world","timestamp":"12:14:52"}
+{"level":"info","message":"Hello world","timestamp":"12:16:16"}
+{"level":"info","message":"Hello world","timestamp":"12:16:47"}
+{"level":"info","message":"Hello world","timestamp":"12:17:03"}
+{"level":"info","message":"Hello world","timestamp":"12:17:30"}
+{"level":"info","message":"Hello world","timestamp":"12:18:41"}
+{"level":"info","message":"Hello world","timestamp":"12:51:31"}
+{"level":"info","message":"Hello world","timestamp":"12:51:59"}
+{"level":"info","message":"Hello world","timestamp":"12:52:38"}
+{"level":"info","message":"Hello world","timestamp":"12:52:46"}
+{"level":"info","message":"Hello world","timestamp":"07:18:44"}
+{"level":"info","message":"Hello world","timestamp":"07:19:07"}
+{"level":"info","message":"Hello world","timestamp":"07:22:54"}
+{"level":"info","message":"Hello world","timestamp":"07:27:23"}
+{"level":"info","message":"Hello world","timestamp":"07:27:25"}
+{"level":"info","message":"Hello world","timestamp":"07:27:27"}
+{"level":"info","message":"Hello world","timestamp":"07:27:30"}
+{"level":"info","message":"Hello world","timestamp":"07:29:16"}
+{"level":"info","message":"Hello world","timestamp":"07:29:18"}
+{"level":"info","message":"Hello world","timestamp":"07:30:12"}
+{"level":"info","message":"Hello world","timestamp":"09:31:32"}
+{"level":"info","message":"Hello world","timestamp":"09:31:42"}
+{"level":"info","message":"Hello world","timestamp":"09:32:06"}
+{"level":"info","message":"Hello world","timestamp":"09:35:28"}
+{"level":"info","message":"Hello world","timestamp":"09:35:50"}
+{"level":"info","message":"Hello world","timestamp":"09:41:03"}
+{"level":"info","message":"Hello world","timestamp":"09:42:46"}
+{"level":"info","message":"Hello world","timestamp":"09:44:29"}
+{"level":"info","message":"Hello world","timestamp":"09:45:18"}
+{"level":"info","message":"Hello world","timestamp":"09:51:01"}
+{"level":"info","message":"Hello world","timestamp":"10:43:31"}
+{"level":"info","message":"Hello world","timestamp":"10:55:29"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"10:55:39"}
+{"level":"info","message":"Hello world","timestamp":"11:00:14"}
+{"level":"info","message":"Hello world","timestamp":"11:00:36"}
+{"level":"info","message":"Hello world","timestamp":"11:03:12"}
+{"level":"info","message":"Hello world","timestamp":"11:03:36"}
+{"level":"info","message":"Hello world","timestamp":"11:04:28"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"11:04:30"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"11:04:30"}
+{"level":"info","message":"4. end findMedicalTestsAndPackages() : tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"11:04:30"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"11:05:28"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"11:05:29"}
+{"level":"info","message":"4. end findMedicalTestsAndPackages() : tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"11:05:29"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"11:05:57"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"11:05:57"}
+{"level":"info","message":"4. end findMedicalTestsAndPackages() : tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"11:05:57"}
+{"level":"info","message":"start findMedicalTests()","timestamp":"11:06:17"}
+{"level":"info","message":"5. end findMedicalTests() : package =  {\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":36,\"tests\":[{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}],\"currency\":\"INR\",\"price\":1200}","timestamp":"11:06:17"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"11:07:11"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"11:07:11"}
+{"level":"info","message":"4. end findMedicalTestsAndPackages() : tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"11:07:11"}
+{"level":"info","message":"start find()","timestamp":"11:07:28"}
+{"level":"info","message":"end find() : packages =  [{\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":36,\"tests\":[\"59bb681515af160b461a9880\",\"59bb6ca615af160b461a9884\"],\"currency\":\"INR\",\"price\":1200}]","timestamp":"11:07:28"}
+{"level":"info","message":"Hello world","timestamp":"11:54:56"}
+{"level":"info","message":"Hello world","timestamp":"12:03:23"}
+{"level":"info","message":"Hello world","timestamp":"12:05:13"}
+{"level":"info","message":"Hello world","timestamp":"12:09:36"}
+{"level":"info","message":"Hello world","timestamp":"12:10:17"}
+{"level":"info","message":"Hello world","timestamp":"12:19:00"}
+{"level":"info","message":"Hello world","timestamp":"12:20:52"}
+{"level":"info","message":"Hello world","timestamp":"12:21:05"}
+{"level":"info","message":"Hello world","timestamp":"12:21:53"}
+{"level":"info","message":"Hello world","timestamp":"12:22:15"}
+{"level":"info","message":"Hello world","timestamp":"12:23:58"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"12:24:20"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"12:24:20"}
+{"level":"info","message":"4. end findMedicalTestsAndPackages() : tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"12:24:20"}
+{"level":"info","message":"start orders.find()","timestamp":"12:26:09"}
+{"level":"info","message":"end orders.find() : orders =  [{\"_id\":\"59d32e5bbff0814eaaab3c36\",\"patientId\":\"59bb5e03b1ba40084856ed11\",\"_status\":\"created\",\"__v\":1,\"report\":{\"results\":[]},\"packages\":[\"59c4e8850b4c6ce4c47981a7\"],\"tests\":[\"59bb681515af160b461a9880\",\"59bb693e15af160b461a9882\"]}]","timestamp":"12:26:09"}
+{"level":"info","message":"Hello world","timestamp":"12:27:49"}
+{"level":"info","message":"start orders.find()","timestamp":"12:28:51"}
+{"level":"info","message":"end orders.find() : orders =  [{\"_id\":\"59d32e5bbff0814eaaab3c36\",\"patientId\":\"59bb5e03b1ba40084856ed11\",\"_status\":\"created\",\"__v\":4,\"report\":{\"results\":[]},\"packages\":[],\"tests\":[]}]","timestamp":"12:28:51"}
+{"level":"info","message":"Hello world","timestamp":"12:29:39"}
+{"level":"info","message":"Hello world","timestamp":"12:31:30"}
+{"level":"info","message":"start orders.find()","timestamp":"12:31:41"}
+{"level":"info","message":"end orders.find() : orders =  [{\"_id\":\"59d32e5bbff0814eaaab3c36\",\"patientId\":\"59bb5e03b1ba40084856ed11\",\"_status\":\"created\",\"__v\":4,\"report\":{\"results\":[]},\"packages\":[],\"tests\":[]}]","timestamp":"12:31:41"}
+{"level":"info","message":"start orders.find()","timestamp":"12:31:59"}
+{"level":"info","message":"end orders.find() : orders =  [{\"_id\":\"59d32e5bbff0814eaaab3c36\",\"patientId\":\"59bb5e03b1ba40084856ed11\",\"_status\":\"created\",\"__v\":5,\"report\":{\"results\":[]},\"packages\":[\"59c4e8850b4c6ce4c47981a7\"],\"tests\":[\"59bb681515af160b461a9880\",\"59bb693e15af160b461a9882\"]}]","timestamp":"12:31:59"}
+{"level":"info","message":"start orders.find()","timestamp":"12:32:23"}
+{"level":"info","message":"end orders.find() : orders =  [{\"_id\":\"59d32e5bbff0814eaaab3c36\",\"patientId\":\"59bb5e03b1ba40084856ed11\",\"_status\":\"created\",\"__v\":6,\"report\":{\"results\":[]},\"packages\":[\"59c4e8850b4c6ce4c47981a7\"],\"tests\":[\"59bb693e15af160b461a9882\"]}]","timestamp":"12:32:23"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"12:32:39"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"12:32:39"}
+{"level":"info","message":"4. end findMedicalTestsAndPackages() : tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"12:32:39"}
+{"level":"info","message":"start orders.find()","timestamp":"12:33:18"}
+{"level":"info","message":"end orders.find() : orders =  [{\"_id\":\"59d32e5bbff0814eaaab3c36\",\"patientId\":\"59bb5e03b1ba40084856ed11\",\"_status\":\"created\",\"__v\":7,\"report\":{\"results\":[]},\"packages\":[\"59c4e8850b4c6ce4c47981a7\"],\"tests\":[\"59bb681515af160b461a9880\"]}]","timestamp":"12:33:18"}
+{"level":"info","message":"start orders.find()","timestamp":"12:53:53"}
+{"level":"info","message":"end orders.find() : orders =  [{\"_id\":\"59d32e5bbff0814eaaab3c36\",\"patientId\":\"59bb5e03b1ba40084856ed11\",\"_status\":\"created\",\"__v\":7,\"report\":{\"results\":[]},\"packages\":[\"59c4e8850b4c6ce4c47981a7\"],\"tests\":[\"59bb681515af160b461a9880\"]}]","timestamp":"12:53:53"}
+{"level":"info","message":"start orders.find()","timestamp":"12:53:54"}
+{"level":"info","message":"end orders.find() : orders =  [{\"_id\":\"59d32e5bbff0814eaaab3c36\",\"patientId\":\"59bb5e03b1ba40084856ed11\",\"_status\":\"created\",\"__v\":7,\"report\":{\"results\":[]},\"packages\":[\"59c4e8850b4c6ce4c47981a7\"],\"tests\":[\"59bb681515af160b461a9880\"]}]","timestamp":"12:53:54"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"13:05:29"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"13:05:29"}
+{"level":"info","message":"4. end findMedicalTestsAndPackages() : tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"13:05:29"}
+{"level":"info","message":"Hello world","timestamp":"18:59:33"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0}]","timestamp":"19:01:28"}
+{"level":"info","message":"Hello world","timestamp":"22:47:05"}
+{"level":"info","message":"Hello world","timestamp":"04:15:43"}
+{"level":"info","message":"Hello world","timestamp":"04:18:00"}
+{"level":"info","message":"Hello world","timestamp":"04:20:08"}
+{"level":"info","message":"Hello world","timestamp":"04:28:06"}
+{"level":"info","message":"Hello world","timestamp":"04:28:15"}
+{"level":"info","message":"Hello world","timestamp":"04:28:32"}
+{"level":"info","message":"Hello world","timestamp":"04:29:00"}
+{"level":"info","message":"Hello world","timestamp":"04:29:15"}
+{"level":"info","message":"Hello world","timestamp":"04:29:51"}
+{"level":"info","message":"Hello world","timestamp":"04:30:54"}
+{"level":"info","message":"Hello world","timestamp":"04:31:22"}
+{"level":"info","message":"Hello world","timestamp":"04:37:55"}
+{"level":"info","message":"Hello world","timestamp":"04:38:52"}
+{"level":"info","message":"Hello world","timestamp":"04:47:58"}
+{"level":"info","message":"Hello world","timestamp":"04:56:00"}
+{"level":"info","message":"Hello world","timestamp":"04:58:21"}
+{"level":"info","message":"Hello world","timestamp":"05:01:43"}
+{"level":"info","message":"Hello world","timestamp":"05:05:16"}
+{"level":"info","message":"Hello world","timestamp":"05:23:20"}
+{"level":"info","message":"Hello world","timestamp":"05:23:27"}
+{"level":"info","message":"Hello world","timestamp":"05:25:53"}
+{"level":"info","message":"Hello world","timestamp":"05:27:01"}
+{"level":"info","message":"Hello world","timestamp":"05:27:46"}
+{"level":"info","message":"Hello world","timestamp":"05:28:12"}
+{"level":"info","message":"Hello world","timestamp":"05:29:16"}
+{"level":"info","message":"Hello world","timestamp":"05:30:15"}
+{"level":"info","message":"Hello world","timestamp":"06:32:48"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"06:33:02"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"06:33:02"}
+{"level":"info","message":"4. end findMedicalTestsAndPackages() : tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"06:33:02"}
+{"level":"info","message":"start findMedicalTestsAndPackages()","timestamp":"06:35:02"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"06:35:02"}
+{"level":"info","message":"4. end findMedicalTestsAndPackages() : tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"06:35:02"}
+{"level":"info","message":"Hello world","timestamp":"06:37:48"}
+{"level":"info","message":"4. end getTests() : tests =  []","timestamp":"06:43:08"}
+{"level":"info","message":"Hello world","timestamp":"06:44:08"}
+{"level":"info","message":"start find()","timestamp":"06:57:43"}
+{"level":"info","message":"end find() : packages =  [{\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":37,\"tests\":[\"59bb681515af160b461a9880\",\"59bb6ca615af160b461a9884\",\"59bb693e15af160b461a9882\"],\"currency\":\"INR\",\"price\":1200}]","timestamp":"06:57:43"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"06:59:13"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"07:00:06"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"07:01:10"}
+{"level":"info","message":"Hello world","timestamp":"07:02:59"}
+{"level":"info","message":"Hello world","timestamp":"07:05:00"}
+{"level":"info","message":"Hello world","timestamp":"07:05:39"}
+{"level":"info","message":"Hello world","timestamp":"07:08:11"}
+{"level":"info","message":"Hello world","timestamp":"07:08:53"}
+{"level":"info","message":"report.update() started","timestamp":"07:08:54"}
+{"level":"info","message":"report.update() fetched order","timestamp":"07:08:54"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"07:08:55"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"07:08:55"}
+{"level":"info","message":"report.update() started","timestamp":"07:09:31"}
+{"level":"info","message":"report.update() fetched order","timestamp":"07:09:31"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"07:09:31"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"07:09:31"}
+{"level":"info","message":"Hello world","timestamp":"07:12:01"}
+{"level":"info","message":"Hello world","timestamp":"07:14:58"}
+{"level":"info","message":"Hello world","timestamp":"07:15:31"}
+{"level":"info","message":"Hello world","timestamp":"07:16:54"}
+{"level":"info","message":"report.update() started","timestamp":"07:16:56"}
+{"level":"info","message":"report.update() fetched order","timestamp":"07:16:56"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"07:16:56"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"07:16:56"}
+{"level":"info","message":"report.update() started","timestamp":"07:16:58"}
+{"level":"info","message":"report.update() fetched order","timestamp":"07:16:58"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"07:16:58"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"07:16:58"}
+{"level":"info","message":"Hello world","timestamp":"07:17:04"}
+{"level":"info","message":"report.update() started","timestamp":"07:17:12"}
+{"level":"info","message":"report.update() fetched order","timestamp":"07:17:12"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"07:17:12"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"07:17:12"}
+{"level":"info","message":"Hello world","timestamp":"09:08:45"}
+{"level":"info","message":"Hello world","timestamp":"09:09:44"}
+{"level":"info","message":"Hello world","timestamp":"09:13:08"}
+{"level":"info","message":"report.update() started","timestamp":"09:33:11"}
+{"level":"info","message":"report.update() fetched order","timestamp":"09:33:11"}
+{"level":"info","message":"4. end getTests() : tests =  []","timestamp":"09:33:11"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"09:33:11"}
+{"level":"info","message":"report.update() started","timestamp":"09:33:29"}
+{"level":"info","message":"report.update() fetched order","timestamp":"09:33:29"}
+{"level":"info","message":"report.update() started","timestamp":"09:34:14"}
+{"level":"info","message":"report.update() fetched order","timestamp":"09:34:14"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"09:34:14"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"09:34:14"}
+{"level":"info","message":"report.update() started","timestamp":"09:41:55"}
+{"level":"info","message":"report.update() fetched order","timestamp":"09:41:55"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"09:41:55"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"09:41:55"}
+{"level":"info","message":"report.update() started","timestamp":"09:42:15"}
+{"level":"info","message":"report.update() fetched order","timestamp":"09:42:15"}
+{"level":"info","message":"report.update() started","timestamp":"09:42:27"}
+{"level":"info","message":"report.update() fetched order","timestamp":"09:42:27"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"09:42:27"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"09:42:27"}
+{"level":"info","message":"Hello world","timestamp":"09:44:02"}
+{"level":"info","message":"report.update() started","timestamp":"09:44:08"}
+{"level":"info","message":"report.update() fetched order","timestamp":"09:44:08"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"09:44:08"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"09:44:08"}
+{"level":"info","message":"Hello world","timestamp":"09:47:29"}
+{"level":"info","message":"report.update() started","timestamp":"09:47:37"}
+{"level":"info","message":"report.update() fetched order","timestamp":"09:47:37"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"09:47:38"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"09:47:38"}
+{"level":"info","message":"Hello world","timestamp":"09:48:52"}
+{"level":"info","message":"report.update() started","timestamp":"09:48:54"}
+{"level":"info","message":"report.update() fetched order","timestamp":"09:48:54"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"09:48:54"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"09:48:54"}
+{"level":"info","message":"Hello world","timestamp":"10:14:16"}
+{"level":"info","message":"report.update() started","timestamp":"10:16:09"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:16:09"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"10:16:09"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"10:16:09"}
+{"level":"info","message":"Hello world","timestamp":"10:18:11"}
+{"level":"info","message":"Hello world","timestamp":"10:18:22"}
+{"level":"info","message":"report.update() started","timestamp":"10:18:48"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:18:48"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"10:18:48"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"10:18:48"}
+{"level":"info","message":"Hello world","timestamp":"10:20:15"}
+{"level":"info","message":"report.update() started","timestamp":"10:20:18"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:20:18"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"10:20:18"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"10:20:18"}
+{"level":"info","message":"Hello world","timestamp":"10:21:29"}
+{"level":"info","message":"report.update() started","timestamp":"10:21:40"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:21:40"}
+{"level":"info","message":"3. end getTests() : testsDetails =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"10:21:40"}
+{"level":"info","message":"report.update() fetched unique tests","timestamp":"10:21:40"}
+{"level":"info","message":"Hello world","timestamp":"10:24:03"}
+{"level":"info","message":"Hello world","timestamp":"10:24:49"}
+{"level":"info","message":"Hello world","timestamp":"10:27:08"}
+{"level":"info","message":"report.update() started","timestamp":"10:27:13"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:27:13"}
+{"level":"info","message":"report.update() started","timestamp":"10:29:49"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:29:49"}
+{"level":"info","message":"Hello world","timestamp":"10:31:36"}
+{"level":"info","message":"Hello world","timestamp":"10:31:39"}
+{"level":"info","message":"Hello world","timestamp":"10:33:02"}
+{"level":"info","message":"report.update() started","timestamp":"10:33:08"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:33:08"}
+{"level":"info","message":"Hello world","timestamp":"10:33:20"}
+{"level":"info","message":"Hello world","timestamp":"10:33:28"}
+{"level":"info","message":"report.update() started","timestamp":"10:33:42"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:33:42"}
+{"level":"info","message":"Hello world","timestamp":"10:37:29"}
+{"level":"info","message":"report.update() started","timestamp":"10:37:35"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:37:35"}
+{"level":"info","message":"report.update() started","timestamp":"10:37:39"}
+{"level":"info","message":"report.update() fetched order","timestamp":"10:37:39"}
+{"level":"info","message":"Hello world","timestamp":"10:46:04"}
+{"level":"info","message":"Hello world","timestamp":"10:49:55"}
+{"level":"info","message":"report.update() started","timestamp":"11:15:45"}
+{"level":"info","message":"report.update() fetched order","timestamp":"11:15:45"}
+{"level":"info","message":"Hello world","timestamp":"11:17:47"}
+{"level":"info","message":"Hello world","timestamp":"11:18:53"}
+{"level":"info","message":"Hello world","timestamp":"11:21:20"}
+{"level":"info","message":"report.update() started","timestamp":"11:23:34"}
+{"level":"info","message":"report.update() fetched order","timestamp":"11:23:34"}
+{"level":"info","message":"report.update() started","timestamp":"11:27:55"}
+{"level":"info","message":"report.update() fetched order","timestamp":"11:27:55"}
+{"level":"info","message":"report.update() started","timestamp":"11:31:06"}
+{"level":"info","message":"report.update() fetched order","timestamp":"11:31:06"}
+{"level":"info","message":"report.update() started","timestamp":"11:31:31"}
+{"level":"info","message":"report.update() fetched order","timestamp":"11:31:31"}
+{"level":"info","message":"report.update() started","timestamp":"11:32:34"}
+{"level":"info","message":"report.update() fetched order","timestamp":"11:32:34"}
+{"level":"info","message":"report.update() started","timestamp":"11:33:39"}
+{"level":"info","message":"report.update() fetched order","timestamp":"11:33:39"}
+{"level":"info","message":"Hello world","timestamp":"11:41:52"}
+{"url":"http://127.0.0.1:3000/api/patients","method":"GET","headers":{"host":"localhost:3000","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","dnt":"1","referer":"http://localhost:3000/","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.8,la;q=0.6","cookie":"connect.sid=s%3A35yx-To3sIgi_SiQ9Ligolm3Q7iSg8WG.yXcUWdoWXj9MJCXvI73rgJZqTLmYaeAgfiP1JpjP%2Bu8"},"json":{},"level":"info","message":"medilab:server:controllers:patients requestOptions = ","timestamp":"11:44:35"}
+{"level":"info","message":"start find()","timestamp":"11:44:35"}
+{"level":"info","message":"end find() : patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"11:44:35"}
+{"level":"info","message":"medilab:server:controllers:patients patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"11:44:35"}
+{"url":"http://127.0.0.1:3000/api/packages","method":"GET","headers":{"host":"localhost:3000","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","dnt":"1","referer":"http://localhost:3000/tests/","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.8,la;q=0.6","cookie":"connect.sid=s%3A35yx-To3sIgi_SiQ9Ligolm3Q7iSg8WG.yXcUWdoWXj9MJCXvI73rgJZqTLmYaeAgfiP1JpjP%2Bu8"},"json":{},"level":"info","message":"medilab:server:controllers:packages requestOptionsPackages = ","timestamp":"11:44:47"}
+{"level":"info","message":"start find()","timestamp":"11:44:47"}
+{"level":"info","message":"end find() : packages =  [{\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":37,\"tests\":[\"59bb681515af160b461a9880\",\"59bb6ca615af160b461a9884\",\"59bb693e15af160b461a9882\"],\"currency\":\"INR\",\"price\":1200}]","timestamp":"11:44:47"}
+{"level":"info","message":"medilab:server:controllers:packages packages = , [{\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":37,\"tests\":[\"59bb681515af160b461a9880\",\"59bb6ca615af160b461a9884\",\"59bb693e15af160b461a9882\"],\"currency\":\"INR\",\"price\":1200}]   tests =  [{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6c8d15af160b461a9883\",\"name\":\"Blood Pressure (Systolic)\",\"lower_limit\":70,\"upper_limit\":150,\"units\":\"bpm\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}]","timestamp":"11:44:47"}
+{"level":"info","message":"start findMedicalTests()","timestamp":"11:44:50"}
+{"level":"info","message":"5. end findMedicalTests() : package =  {\"_id\":\"59c4e8850b4c6ce4c47981a7\",\"name\":\"Diabetes package\",\"discountAmount\":20,\"discountStrategy\":\"percentage\",\"__v\":37,\"tests\":[{\"_id\":\"59bb681515af160b461a9880\",\"name\":\"Fasting Blood Sugar (FBS)\",\"lower_limit\":70,\"upper_limit\":100,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb693e15af160b461a9882\",\"name\":\"Urine Sugar (US)\",\"lower_limit\":40,\"upper_limit\":80,\"units\":\"mg/dl\",\"__v\":0},{\"_id\":\"59bb6ca615af160b461a9884\",\"name\":\"Blood Pressure (Diastolic)\",\"lower_limit\":50,\"upper_limit\":120,\"units\":\"bpm\",\"__v\":0}],\"currency\":\"INR\",\"price\":1200}","timestamp":"11:44:50"}
+{"url":"http://127.0.0.1:3000/api/patients","method":"GET","headers":{"host":"localhost:3000","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","dnt":"1","referer":"http://localhost:3000/packages/","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.8,la;q=0.6","cookie":"connect.sid=s%3A35yx-To3sIgi_SiQ9Ligolm3Q7iSg8WG.yXcUWdoWXj9MJCXvI73rgJZqTLmYaeAgfiP1JpjP%2Bu8","if-none-match":"W/\"24b8-XiSprlqYU092ByHebYJB41CZi/c\""},"json":{},"level":"info","message":"medilab:server:controllers:patients requestOptions = ","timestamp":"11:49:11"}
+{"level":"info","message":"start find()","timestamp":"11:49:11"}
+{"level":"info","message":"end find() : patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"11:49:11"}
+{"level":"info","message":"medilab:server:controllers:patients patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"11:49:11"}
+{"url":"http://127.0.0.1:3000/api/patients","method":"GET","headers":{"host":"localhost:3000","connection":"keep-alive","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","dnt":"1","referer":"http://localhost:3000/packages/","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.8,la;q=0.6","cookie":"connect.sid=s%3A35yx-To3sIgi_SiQ9Ligolm3Q7iSg8WG.yXcUWdoWXj9MJCXvI73rgJZqTLmYaeAgfiP1JpjP%2Bu8","if-none-match":"W/\"24b8-XiSprlqYU092ByHebYJB41CZi/c\""},"json":{},"level":"info","message":"medilab:server:controllers:patients requestOptions = ","timestamp":"12:03:24"}
+{"level":"info","message":"start find()","timestamp":"12:03:24"}
+{"level":"info","message":"end find() : patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"12:03:24"}
+{"level":"info","message":"medilab:server:controllers:patients patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"12:03:24"}
+{"url":"http://127.0.0.1:3000/api/patients","method":"GET","headers":{"host":"localhost:3000","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","dnt":"1","referer":"http://localhost:3000/packages/","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.8,la;q=0.6","cookie":"connect.sid=s%3A35yx-To3sIgi_SiQ9Ligolm3Q7iSg8WG.yXcUWdoWXj9MJCXvI73rgJZqTLmYaeAgfiP1JpjP%2Bu8"},"json":{},"level":"info","message":"medilab:server:controllers:patients requestOptions = ","timestamp":"12:12:49"}
+{"level":"info","message":"start find()","timestamp":"12:12:49"}
+{"level":"info","message":"end find() : patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"12:12:49"}
+{"level":"info","message":"medilab:server:controllers:patients patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"12:12:49"}
+{"url":"http://127.0.0.1:3000/api/patients","method":"GET","headers":{"host":"localhost:3000","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","dnt":"1","referer":"http://localhost:3000/packages/","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.8,la;q=0.6","cookie":"connect.sid=s%3A35yx-To3sIgi_SiQ9Ligolm3Q7iSg8WG.yXcUWdoWXj9MJCXvI73rgJZqTLmYaeAgfiP1JpjP%2Bu8"},"json":{},"level":"info","message":"medilab:server:controllers:patients requestOptions = ","timestamp":"12:12:56"}
+{"level":"info","message":"start find()","timestamp":"12:12:56"}
+{"level":"info","message":"end find() : patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"12:12:56"}
+{"level":"info","message":"medilab:server:controllers:patients patients =  [{\"_id\":\"59bb5e03b1ba40084856ed11\",\"name\":\"Prashanth\",\"dob\":\"1981-08-10T00:00:00.000Z\",\"age\":36,\"sex\":\"male\",\"__v\":4,\"phones\":[\"9448441478\"],\"emails\":[\"puranik@example.in\",\"puranik@gmail.com\"]},{\"_id\":\"59bdd57c013fce42c7f59b6b\",\"name\":\"Mary\",\"dob\":\"1989-02-03T00:00:00.000Z\",\"age\":28,\"sex\":\"female\",\"__v\":0,\"phones\":[\"9448441479\"],\"emails\":[\"mary@example.com\"]},{\"_id\":\"59bdd591013fce42c7f59b6c\",\"name\":\"Ilanko\",\"dob\":\"1983-12-30T00:00:00.000Z\",\"age\":34,\"sex\":\"male\",\"__v\":0,\"phones\":[\"9448441476\",\"9448441477\"],\"emails\":[\"ilanko@example.com\"]},{\"_id\":\"59c0be6bbf98168ef7cfc336\",\"name\":\"Paul Nitin\",\"dob\":\"2000-12-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"9876543210\"],\"emails\":[\"nitin@gmail.com\"]},{\"_id\":\"59c0ed795dd2c59771423675\",\"name\":\"Ravi Kumar\",\"dob\":\"1990-07-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[\"935678900\"],\"emails\":[\"ravikumar@gmail.com\"]},{\"_id\":\"59c4f9ef2f5efbe860bf3c55\",\"name\":\"John\",\"dob\":\"2000-11-11T00:00:00.000Z\",\"sex\":\"male\",\"__v\":0,\"phones\":[],\"emails\":[]}]","timestamp":"12:12:56"}
+{"level":"info","message":"Hello world","timestamp":"12:16:36"}
+{"level":"info","message":"Hello world","timestamp":"12:17:16"}
+{"level":"info","message":"Hello world","timestamp":"12:17:42"}
+{"level":"info","message":"Hello world","timestamp":"12:17:53"}
+{"level":"info","message":"Hello world","timestamp":"12:18:16"}
+{"level":"info","message":"Hello world","timestamp":"12:19:09"}
+{"level":"info","message":"Hello world","timestamp":"12:19:52"}
+{"level":"info","message":"Hello world","timestamp":"12:20:06"}
+{"level":"info","message":"Hello world","timestamp":"12:20:07"}
+{"level":"info","message":"Hello world","timestamp":"12:29:47"}
+{"level":"info","message":"Hello world","timestamp":"12:32:56"}
+{"level":"info","message":"Hello world","timestamp":"12:34:25"}
+{"level":"info","message":"Hello world","timestamp":"12:34:50"}
+{"level":"info","message":"Hello world","timestamp":"12:35:36"}
+{"level":"info","message":"Hello world","timestamp":"12:35:41"}
+{"level":"info","message":"Hello world","timestamp":"12:35:47"}
+{"level":"info","message":"Hello world","timestamp":"12:35:50"}
+{"level":"info","message":"Hello world","timestamp":"12:35:59"}
+{"level":"info","message":"Hello world","timestamp":"12:36:20"}
+{"level":"info","message":"Hello world","timestamp":"12:38:50"}
+{"level":"info","message":"Hello world","timestamp":"12:39:37"}
+{"level":"info","message":"Hello world","timestamp":"12:41:51"}
+{"level":"info","message":"Hello world","timestamp":"12:42:29"}
+{"level":"info","message":"Hello world","timestamp":"12:46:43"}
+{"level":"info","message":"Hello world","timestamp":"12:47:27"}
+{"level":"info","message":"Hello world","timestamp":"12:50:26"}
+{"level":"info","message":"Hello world","timestamp":"12:52:07"}
+{"level":"info","message":"Hello world","timestamp":"12:54:43"}
+{"level":"info","message":"Hello world","timestamp":"12:55:02"}
+{"level":"info","message":"Hello world","timestamp":"12:55:58"}
+{"level":"info","message":"Hello world","timestamp":"13:03:06"}

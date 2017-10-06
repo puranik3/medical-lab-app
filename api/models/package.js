@@ -26,4 +26,7 @@ var packageSchema = new mongoose.Schema({
     tests: [mongoose.Schema.ObjectId]
 });
 
-module.exports = mongoose.model('Package', packageSchema);
+module.exports = {
+    schema: packageSchema,
+    model: mongoose.model('Package', packageSchema)
+};
