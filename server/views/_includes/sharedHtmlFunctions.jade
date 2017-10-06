@@ -35,6 +35,24 @@ mixin renderPatientRow(patient)
               span.pull-left &nbsp;&nbsp;
               i.btn-action.btn-delete.pull-left.fa.fa-close(data-id="#{patient._id}")
 
+mixin renderOrderRow(order)
+  - var strOrder = JSON.stringify(order)
+  tr(data-src="#{strPatient}")
+      td=order.patientId
+      td
+          +getFormattedDate(order.createdDate)
+      td
+          +getFormattedDate(order.lastModifiedDate)
+      td=order._status
+      td=order.report._status
+      td=order.report.createdDate
+      td=order.report.lastModifiedDate
+      td(style='vertical-align: middle;')
+          span.pull-right
+              i.btn-action.btn-update.pull-left.fa.fa-pencil(data-id="#{order._id}",data-toggle="modal", data-target='#place-order-dialog')
+              span.pull-left &nbsp;&nbsp;
+              i.btn-action.btn-delete.pull-left.fa.fa-close(data-id="#{order._id}")
+
 mixin renderTestRow(test)
   - var strTest = JSON.stringify(test)
   tr(data-src="#{strTest}")

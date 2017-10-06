@@ -25,6 +25,7 @@ block content
                     th Report Status
                     th Report Created 
                     th Report Last Modified 
+                    th Actions 
             tbody
                 each order in orders
                     +renderOrderRow(order)
@@ -37,36 +38,8 @@ block globalcontent
                     button.close(type="button", data-dismiss="modal" aria-hidden="true") &times;
                     h4.modal-title Place New Order
                 .modal-body
-                    form.form-horizontal
-                        .form-group
-                            label.control-label.col-md-4(for="name") Name
-                            .col-md-8
-                                input#name.form-control(type="text", placeholder="eg. Ravi Kumar")
-                        .form-group
-                            label.control-label.col-md-4(for="dob") Date of Birth
-                            .col-md-8
-                                input#dob.form-control(type="date", placeholder="Select a date")
-                        .form-group
-                            label.control-label.col-md-4(for="sex") Sex
-                            .col-md-8
-                                select#sex.form-control
-                                    option(value="male") Male
-                                    option(value="female") Female
-                                    option(value="other") Other
-                                    option(value="unspecified") Not specified
-                        .form-group
-                            label.control-label.col-md-4(for="phones") Phone number(s)
-                            #phones.col-md-8
-                                .input-padded-right
-                                    input.form-control(type="tel", placeholder="eg. +91-9448441480")
-                                    i.btn-action.btn-add-phone.fa.fa-plus
-                        .form-group
-                            label.control-label.col-md-4(for="emails") Email id(s)
-                            #emails.col-md-8
-                                .input-padded-right
-                                    input.form-control(type="email", placeholder="eg. ravi.kumar@gmail.com")
-                                    i.btn-action.btn-add-email.fa.fa-plus
+                    | &nbsp;
                 .modal-footer
                     button.btn.btn-default(type="button", data-dismiss="modal") Cancel
                     | &nbsp;
-                    button#btn-create-update.btn.btn-primary(type="button") Add/Update
+                    button#btn-place-order.btn.btn-primary(type="button") Place order
