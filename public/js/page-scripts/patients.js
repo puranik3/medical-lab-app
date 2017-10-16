@@ -3,14 +3,144 @@
     var $btnUpdate = $( '.btn-update' );
     var $btnDelete = $( '.btn-delete' );
 
+    var $btnOrder = $( '.btn-order' );
+
     var $createUpdateDialog = $( '#create-update-dialog' );
+    var $placeOrderDialog = $( '#place-order-dialog' );
 
     var $phones = $( '#phones' );
     var $emails = $( '#emails' );
     var $btnCreateUpdate = $( '#btn-create-update' );
 
+    var $btnPlaceOrder = $( '#btn-place-order' );
+
+    var $searchResultsTests = $( '#search-results-tests' );
+    var $searchResultsPackages = $( '#search-results-packages' );
+
     var modalState = 'create';
     var $activatedRow;
+
+    var tests = null, packages = null;
+    var selectedTests = [], selectedPackages = [];
+
+    MediLab.MedicalTestService.find(
+        function( testsReceived ) {
+            tests = testsReceived;
+
+            var strSearchResultsTestsItems = '';
+            for( var i = 0; i < tests.length; i++ ) {
+                strSearchResultsTestsItems += '<li data-id="' + tests[i]._id + '">' + tests[i].name + '<i class="fa fa-check-circle icon-select-item"></i></li>';
+            }
+            $searchResultsTests.html( strSearchResultsTestsItems );
+        },
+        function( err ) {
+            alert( 'Some error occured when trying to fetch tests. You will face problems when adding tests to an order. Try reloading the page before proceeding. If the problem persists contact the admin.' );
+            console.log( err );
+        }
+    );
+
+    MediLab.PackageService.find(
+        function( packagesReceived ) {
+            packages = packagesReceived;
+
+            var strSearchResultsPackagesItems = '';
+            for( var i = 0; i < packages.length; i++ ) {
+                strSearchResultsPackagesItems += '<li data-id="' + packages[i]._id + '">' + packages[i].name + '<i class="fa fa-check-circle icon-select-item"></i></li>';
+            }
+            $searchResultsPackages.html( strSearchResultsPackagesItems );
+        },
+        function( err ) {
+            alert( 'Some error occured when trying to fetch packages. You will face problems when adding packages to an order. Try reloading the page before proceeding. If the problem persists contact the admin.' );
+            console.log( err );
+        }
+    );
+
+    $searchResultsTests.on( 'click', 'li', function() {
+        var $this = $( this );
+        var id = $this.data( 'id' );
+        
+        var index = selectedTests.indexOf( id );
+        if( index === -1 ) {
+            selectedTests.push( id );
+            $this.addClass( 'selected' );
+        } else {
+            selectedTests.splice( index, 1 );
+            $this.removeClass( 'selected' );
+        }
+
+        console.log( selectedTests );
+    });
+
+    $searchResultsPackages.on( 'click', 'li', function() {
+        var $this = $( this );
+        var id = $this.data( 'id' );
+        
+        var index = selectedPackages.indexOf( id );
+        if( index === -1 ) {
+            selectedPackages.push( id );
+            $this.addClass( 'selected' );
+        } else {
+            selectedPackages.splice( index, 1 );
+            $this.removeClass( 'selected' );
+        }
+
+        console.log( selectedPackages );
+    });
+
+    $btnPlaceOrder.on( 'click', function() {
+        var patientId = $activatedRow.data( 'src' )._id;
+
+        MediLab.PatientService.orders.create(
+            patientId,
+            {},
+            function( order ) {
+                console.log( order );
+
+                MediLab.PatientService.orders.medicalTestsAndPackages.add(
+                    patientId,
+                    order._id,
+                    {
+                        tests: selectedTests,
+                        packages: selectedPackages
+                    },
+                    function( order ) {
+                        $placeOrderDialog.modal( 'hide' );
+                        alert( 'Order was placed successfully' );
+                        console.log( order );
+                    },
+                    function( err ) {
+                        $placeOrderDialog.modal( 'hide' );
+                        alert( 'Order was created, but there was a problem adding tests and packages to it' );
+                        console.log( err );
+                    }
+                );
+            },
+            function( err ) {
+                $placeOrderDialog.modal( 'hide' );
+                alert( 'Some error occured when trying to place order' );
+                console.log( err );
+            }
+        );
+    });
+
+    function clearSelectedTestsAndPackages() {
+        tests = null;
+        packages = null;
+
+        selectedTests = [];
+        selectedPackages = [];
+
+        $searchResultsTests.find( 'li' ).removeClass( 'selected' );
+        $searchResultsPackages.find( 'li' ).removeClass( 'selected' );
+    }
+
+    $placeOrderDialog.on('show.bs.modal hidden.bs.modal', function() {
+        clearSelectedTestsAndPackages();
+    });
+
+    $btnOrder.on('click', function() {
+        $activatedRow = $( this ).closest( 'tr' );
+    });
 
     $btnCreate.on('click', function() {
         modalState = 'create';

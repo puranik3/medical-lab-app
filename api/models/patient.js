@@ -1,4 +1,5 @@
 var mongoose = require( 'mongoose' );
+var orderSchema = require( './order' ).schema;
 
 var patientSchema = new mongoose.Schema({
     name: {
@@ -26,7 +27,8 @@ var patientSchema = new mongoose.Schema({
         required: false
         //validate: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
     },
-    phones: [String]
+    phones: [String],
+    orders: [orderSchema]
 });
 
 module.exports = {

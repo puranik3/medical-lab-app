@@ -1,0 +1,47 @@
+.results-title {
+    padding: 0 10px;
+    border-radius: 2px;
+    line-height: 2;
+    color: white;
+    background-color: #337ab7;
+}
+
+#search-results-tests, #search-results-packages {
+    overflow: auto;
+    height: 240px;
+    padding: 0;
+    list-style-type: none;
+}
+
+#search-results-tests > li, #search-results-packages > li {
+    font-size: 12px;
+    line-height: 20px;
+    padding: 4px;
+    border-radius: 2px;
+    margin: 3px 0;
+    cursor: pointer;
+}
+
+#search-results-tests > li:hover, #search-results-packages > li:hover {
+    background-color: lightgray;
+}
+
+#search-results-tests > li.selected, #search-results-packages > li.selected {
+    background-color: #539ac7;
+}
+
+#search-results-tests > li .icon-select-item, #search-results-packages > li .icon-select-item {
+    float: right;
+    display: none;
+    font-size: 1.5em;
+}
+
+#search-results-tests > li:hover .icon-select-item, #search-results-packages > li:hover .icon-select-item {
+    display: inline-block;
+    color: white;
+}
+
+#search-results-tests > li.selected .icon-select-item, #search-results-packages > li.selected .icon-select-item {
+    display: inline-block;
+    color: white;
+}

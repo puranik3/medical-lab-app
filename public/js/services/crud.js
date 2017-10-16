@@ -4,13 +4,16 @@ MediLab.CrudService = {
     setPathFragment( pathFragment ) {
         this._path = MediLab.config.apiBaseUrl + '/' + pathFragment;
     },
-    getFullPath: function() {
+    getPath: function() {
         return this._path;
+    },
+    getPathById: function( id ) {
+        return [this.getPath(), id].join( '/' )
     },
     find: function( success, error ) {
         $.ajax({
             method: 'GET',
-            url: this.getFullPath(),
+            url: this.getPath(),
             success: success,
             error: error
         });
@@ -18,7 +21,7 @@ MediLab.CrudService = {
     findById: function( id, success, error ) {
         $.ajax({
             method: 'GET',
-            url: this.getFullPath() + '/' + id,
+            url: this.getPathById( id ),
             success: success,
             error: error
         });
@@ -26,7 +29,7 @@ MediLab.CrudService = {
     create: function( dataObj, success, error ) {
         $.ajax({
             method: 'POST',
-            url: this.getFullPath(),
+            url: this.getPath(),
             data: dataObj,
             dataType: 'json',
             success: success,
@@ -36,7 +39,7 @@ MediLab.CrudService = {
     updateById: function( id, dataObj, success, error ) {
         $.ajax({
             method: 'PUT',
-            url: this.getFullPath() + '/' + id,
+            url: this.getPathById( id ),
             data: dataObj,
             dataType: 'json',
             success: success,
@@ -46,7 +49,7 @@ MediLab.CrudService = {
     deleteById: function( id, success, error ) {
         $.ajax({
             method: 'DELETE',
-            url: this.getFullPath() + '/' + id,
+            url: this.getPathById( id ),
             success: success,
             error: error
         });

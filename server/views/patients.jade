@@ -2,9 +2,14 @@ extends layout
 
 include _includes/sharedHtmlFunctions
 
+block pagestyles
+    link(rel='stylesheet', href='/css/page-styles/patients.css')
+
 block pagescripts
     script(src='/js/services/crud.js')
     script(src='/js/services/patient.js')
+    script(src='/js/services/test.js')
+    script(src='/js/services/package.js')
     script(src='/js/page-scripts/patients.js')
 
 block content
@@ -70,3 +75,28 @@ block globalcontent
                     button.btn.btn-default(type="button", data-dismiss="modal") Cancel
                     | &nbsp;
                     button#btn-create-update.btn.btn-primary(type="button") Add/Update
+
+    #place-order-dialog.modal.fade
+        .modal-dialog
+            .modal-content
+                .modal-header.bg-primary
+                    button.close(type="button", data-dismiss="modal" aria-hidden="true") &times;
+                    h4.modal-title Place an order
+                .modal-body
+                    form.form-horizontal
+                        .form-group
+                            label.control-label.col-md-4(for="search") Name
+                            .col-md-8
+                                input#search.form-control(type="search", placeholder="eg. Lipid profile")
+                    #search-results
+                        .row
+                            .col-md-6
+                                h5.results-title Tests
+                                ul#search-results-tests
+                            .col-md-6
+                                h5.results-title Packages
+                                ul#search-results-packages
+                .modal-footer
+                    button.btn.btn-default(type="button", data-dismiss="modal") Cancel
+                    | &nbsp;
+                    button#btn-place-order.btn.btn-primary(type="button") Place order
