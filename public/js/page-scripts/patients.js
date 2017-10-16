@@ -14,6 +14,11 @@
 
     var $btnPlaceOrder = $( '#btn-place-order' );
 
+    var $search = $( '#search' );
+    var $totalCost = $( '#total-cost' );
+    var $totalDiscount = $( '#total-discount' );
+    var $netAmount = $( '#net-amount' );
+
     var $searchResultsTests = $( '#search-results-tests' );
     var $searchResultsPackages = $( '#search-results-packages' );
 
@@ -22,16 +27,20 @@
 
     var tests = null, packages = null;
     var selectedTests = [], selectedPackages = [];
+    var totalCost = 0, totalDiscount = 0, netAmount = 0;
 
     MediLab.MedicalTestService.find(
         function( testsReceived ) {
             tests = testsReceived;
 
             var strSearchResultsTestsItems = '';
+            var $li = null;
+
             for( var i = 0; i < tests.length; i++ ) {
-                strSearchResultsTestsItems += '<li data-id="' + tests[i]._id + '">' + tests[i].name + '<i class="fa fa-check-circle icon-select-item"></i></li>';
+                $li = $(  '<li>' + tests[i].name + '<i class="fa fa-check-circle icon-select-item"></i></li>' );
+                $li.data( 'src', tests[i] );
+                $searchResultsTests.append( $li );
             }
-            $searchResultsTests.html( strSearchResultsTestsItems );
         },
         function( err ) {
             alert( 'Some error occured when trying to fetch tests. You will face problems when adding tests to an order. Try reloading the page before proceeding. If the problem persists contact the admin.' );
@@ -44,10 +53,13 @@
             packages = packagesReceived;
 
             var strSearchResultsPackagesItems = '';
+            var $li = null;
+
             for( var i = 0; i < packages.length; i++ ) {
-                strSearchResultsPackagesItems += '<li data-id="' + packages[i]._id + '">' + packages[i].name + '<i class="fa fa-check-circle icon-select-item"></i></li>';
+                $li = $( '<li>' + packages[i].name + '<i class="fa fa-check-circle icon-select-item"></i></li>' );
+                $li.data( 'src', packages[i] );
+                $searchResultsPackages.append( $li );
             }
-            $searchResultsPackages.html( strSearchResultsPackagesItems );
         },
         function( err ) {
             alert( 'Some error occured when trying to fetch packages. You will face problems when adding packages to an order. Try reloading the page before proceeding. If the problem persists contact the admin.' );
@@ -55,9 +67,33 @@
         }
     );
 
+    $search.on('input', function() {
+        var searchKeyUC = $search.val().toLocaleUpperCase();
+
+        var $searchResultsTestsItems = $searchResultsTests.find('li');
+        var $searchResultsPackagesItems = $searchResultsPackages.find('li');
+
+        var i;
+        for( i = 0; i < $searchResultsTestsItems.length; i++ ) {
+            if( $searchResultsTestsItems.eq(i).data('src').name.toLocaleUpperCase().indexOf( searchKeyUC ) === -1 ) {
+                $searchResultsTestsItems.eq(i).addClass( 'hidden' );
+            } else {
+                $searchResultsTestsItems.eq(i).removeClass( 'hidden' );
+            }
+        }
+
+        for( i = 0; i < $searchResultsPackagesItems.length; i++ ) {
+            if( $searchResultsPackagesItems.eq(i).data('src').name.toLocaleUpperCase().indexOf( searchKeyUC ) === -1 ) {
+                $searchResultsPackagesItems.eq(i).addClass( 'hidden' );
+            } else {
+                $searchResultsPackagesItems.eq(i).removeClass( 'hidden' );
+            }
+        }
+    });
+
     $searchResultsTests.on( 'click', 'li', function() {
         var $this = $( this );
-        var id = $this.data( 'id' );
+        var id = $this.data( 'src' )._id;
         
         var index = selectedTests.indexOf( id );
         if( index === -1 ) {
@@ -73,15 +109,36 @@
 
     $searchResultsPackages.on( 'click', 'li', function() {
         var $this = $( this );
-        var id = $this.data( 'id' );
+        var id = $this.data( 'src' )._id;
+        var cost = $this.data( 'src' ).price;
+        var discountAmount = $this.data( 'src' ).discountAmount || 0;
+        var discountStrategy = $this.data( 'src' ).discountStrategy;
+
+        if( discountStrategy === 'percentage' ) {
+            discountAmount = ( ( discountAmount / 100 ) * cost );
+        } 
+        
+        var discountedCost = cost - discountAmount;
         
         var index = selectedPackages.indexOf( id );
         if( index === -1 ) {
             selectedPackages.push( id );
             $this.addClass( 'selected' );
+            totalCost += cost;
+            totalDiscount += discountAmount;
+            netAmount += discountedCost;
+            $totalCost.html( totalCost );
+            $totalDiscount.html( totalDiscount );
+            $netAmount.html( netAmount );
         } else {
             selectedPackages.splice( index, 1 );
             $this.removeClass( 'selected' );
+            totalCost -= cost;
+            totalDiscount -= discountAmount;
+            netAmount -= discountedCost;
+            $totalCost.html( totalCost );
+            $totalDiscount.html( totalDiscount );
+            $netAmount.html( netAmount );
         }
 
         console.log( selectedPackages );
@@ -126,6 +183,12 @@
     function clearSelectedTestsAndPackages() {
         tests = null;
         packages = null;
+        totalCost = 0;
+        totalDiscount = 0;
+        netAmount = 0;
+
+        $search.val( '' );
+        $search.trigger( 'input' );
 
         selectedTests = [];
         selectedPackages = [];
@@ -214,7 +277,7 @@
 
     function populatePatientDetailsInDialog() {
         // associate patients details with dialog
-        var patient = $activatedRow.data( 'src' )
+        var patient = $activatedRow.data( 'src' );
         $createUpdateDialog.find( '#name' ).val( patient.name );
         $createUpdateDialog.find( '#dob' ).val( patient.dob.substring(0, 10) );
         $createUpdateDialog.find( '#sex' ).val( patient.sex );

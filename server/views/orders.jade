@@ -2,17 +2,17 @@ extends layout
 
 include _includes/sharedHtmlFunctions
 
+block pagestyles
+    link(rel='stylesheet', href='/css/page-styles/orders.css')
+
 block pagescripts
     script(src='/js/services/crud.js')
-    script(src='/js/services/order.js')
+    script(src='/js/services/patient.js')
     script(src='/js/page-scripts/orders.js')
 
 block content
     .page-header
         h1 #{pageHeader}
-            button#btn-create.btn.btn-primary.pull-right(role='button', data-toggle="modal", data-target='#place-order-dialog')
-                i.fa.fa-plus
-                | &nbsp; Place new order
     
     .table-responsive
         table.table.table-bordered.table-striped.table-hover
@@ -31,15 +31,38 @@ block content
                     +renderOrderRow(order)
 
 block globalcontent
-    #place-order-dialog.modal.fade
+    #update-order-dialog.modal.fade
         .modal-dialog
             .modal-content
                 .modal-header.bg-primary
                     button.close(type="button", data-dismiss="modal" aria-hidden="true") &times;
-                    h4.modal-title Place New Order
+                    h4.modal-title Update Order
                 .modal-body
                     | &nbsp;
                 .modal-footer
                     button.btn.btn-default(type="button", data-dismiss="modal") Cancel
                     | &nbsp;
-                    button#btn-place-order.btn.btn-primary(type="button") Place order
+                    button#btn-update-order.btn.btn-primary(type="button") Update order
+
+    #update-test-results-dialog.modal.fade
+        .modal-dialog.modal-lg
+            .modal-content
+                .modal-header.bg-primary
+                    button.close(type="button", data-dismiss="modal" aria-hidden="true") &times;
+                    h4.modal-title Update Test Results
+                .modal-body
+                    .table-responsive
+                        table.table.table-bordered.table-striped.table-hover
+                            thead.bg-primary
+                                tr
+                                    th Test
+                                    th Value
+                                    th Unit
+                                    th Lower limit
+                                    th Upper Limit
+                            tbody
+                .modal-footer
+                    button.btn.btn-default(type="button", data-dismiss="modal") Cancel
+                    | &nbsp;
+                    button#btn-update-test-results.btn.btn-primary(type="button") Update Test Results
+                    button#btn-freeze-report.btn.btn-primary(type="button") Freeze Report

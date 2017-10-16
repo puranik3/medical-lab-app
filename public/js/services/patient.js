@@ -105,11 +105,11 @@ MediLab.PatientService.orders.report = {
         });
     },
     // action = 'initiate' | 'draft' | 'complete'
-    update: function( patientId, orderId, success, error ) {
+    update: function( patientId, orderId, results, action, success, error ) {
         $.ajax({
             method: 'PUT',
             url: this.getPath( patientId, orderId ) + '?' + $.param({ action: action }),
-            data: medicalTestsAndPackages,
+            data: results,
             dataType: 'json',
             success: success,
             error: error
