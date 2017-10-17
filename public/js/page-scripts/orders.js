@@ -2,14 +2,30 @@
     var $btnInitiateReport = $( '.btn-initiate-report' );
     var $btnUpdateReport = $( '.btn-update-report' );
     var $btnFreezeReport = $( '.btn-freeze-report' );
+    var $btnViewReport = $( '.btn-view-report' );
+
     var $btnUpdate = $( '.btn-update' );
     var $btnDelete = $( '.btn-delete' );
 
     var $updateOrderDialog = $( '#update-order-dialog' );
     var $updateTestResultsDialog = $( '#update-test-results-dialog' );
+    var $printReportDialog = $( '#print-report-dialog' );
 
     var $btnUpdateOrder = $( '#btn-update-order' );
     var $btnUpdateTestResults = $( '#btn-update-test-results' );
+    var $btnPrintReport = $( '#btn-print-report' );
+
+    var $reportPatientName = $( '#report-patient-name' );
+    var $reportPatientEmails = $( '#report-patient-emails' );
+    var $reportPatientPhones = $( '#report-patient-phones' );
+
+    var $reportOrderStatus = $( '#report-order-status' );
+    var $reportOrderCreatedDate = $( '#report-order-createdDate' );
+    var $reportOrderLastModifiedDate = $( '#report-order-lastModifiedDate' );
+
+    var $reportReportStatus = $( '#report-report-status' );
+    var $reportReportCreatedDate = $( '#report-report-createdDate' );
+    var $reportReportLastModifiedDate = $( '#report-report-lastModifiedDate' );
 
     var $activatedRow;
 
@@ -118,7 +134,7 @@
         }
     });
 
-    $btnUpdateReport.on('click', function() {
+    $btnUpdateReport.add($btnViewReport).on('click', function() {
         $activatedRow = $( this ).closest( 'tr' );
     });
 
@@ -302,6 +318,52 @@
         );
     });
 
+    $printReportDialog.on( 'show.bs.modal', populateReportDialog );
+    $printReportDialog.on( 'hidden.bs.modal', resetReportDialog );
+
+    function populateReportDialog() {
+        // associate report details with dialog
+        var orderDetails = $activatedRow.data( 'src' );
+        $printReportDialogTableBody = $printReportDialog.find( 'tbody' );
+
+        if( orderDetails.order.report._status !== 'completed' ) {
+            $printReportDialog.modal( 'hide' );
+            alert( 'Report for this order has not yet been marked complete. Try viewing again once the report is marked complete.' );
+            return false;
+        }
+
+        $reportPatientName.html( orderDetails.patient.name );
+        $reportPatientEmails.html( orderDetails.patient.email.join(', ') );
+        $reportPatientPhones.html( orderDetails.patient.phones.join(', ') );
+    
+        $reportOrderStatus.html( orderDetails.order._status );
+        $reportOrderCreatedDate.html( MediLab.Utils.formatDateTime( orderDetails.order.createdDate, ' ' ) );
+        $reportOrderLastModifiedDate.html( MediLab.Utils.formatDateTime( orderDetails.order.lastModifiedDate, ' ' ) );
+    
+        $reportReportStatus.html( orderDetails.order.report._status );
+        $reportReportCreatedDate.html( MediLab.Utils.formatDateTime( orderDetails.order.report.createdDate, ' ' ) );
+        $reportReportLastModifiedDate.html( MediLab.Utils.formatDateTime( orderDetails.order.report.lastModifiedDate, ' ' ) );
+
+        var $tr = null;
+        $.each( orderDetails.order.report.results, function( index, resultItem ) {
+            $tr = $(
+                [
+                    '<tr>',
+                        '<td>' + resultItem.test.name + '</td>',
+                        '<td>' + resultItem.result + '</td>',
+                        '<td>' + resultItem.test.units + '</td>',
+                        '<td>' + resultItem.test.lower_limit + '</td>',
+                        '<td>' + resultItem.test.upper_limit + '</td>',
+                    '</tr>'
+                ].join('')
+            );
+            $printReportDialogTableBody.append( $tr );
+        });
+    }
+
+    function resetReportDialog() {
+    }
+    
     /*
     $btnCreateUpdate.on('click', function() {
         var patientId = modalState === 'create' ? null : $activatedRow.data( 'src' )._id;

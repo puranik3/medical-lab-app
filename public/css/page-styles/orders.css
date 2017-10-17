@@ -15,3 +15,19 @@
 .cell-report-lastModifiedDate .time {
     font-size: 0.8em;
 }
+
+#report-patient-name,
+#report-order-status,
+#report-report-status {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+#report-patient-emails,
+#report-patient-phones,
+#report-order-createdDate,
+#report-order-lastModifiedDate,
+#report-report-createdDate,
+#report-report-lastModifiedDate {
+    font-size: 0.8em;
+}

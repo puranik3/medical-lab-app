@@ -79,6 +79,8 @@ mixin renderOrderRow(order)
               span.pull-left &nbsp;&nbsp;
               i.btn-action.btn-freeze-report.pull-left.fa.fa-file-text(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" title="Freeze report")
               span.pull-left &nbsp;&nbsp;
+              i.btn-action.btn-view-report.pull-left.fa.fa-eye(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}",  data-toggle="modal", data-target='#print-report-dialog', title="View/Print report")
+              span.pull-left &nbsp;&nbsp;
               i.btn-action.btn-update.pull-left.fa.fa-pencil(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" data-toggle="modal", data-target='#update-order-dialog')
               span.pull-left &nbsp;&nbsp;
               i.btn-action.btn-delete.pull-left.fa.fa-close(data-patient-id="#{order.patient._id}", data-order-id="#{order.order_id}")

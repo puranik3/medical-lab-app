@@ -66,3 +66,45 @@ block globalcontent
                     button.btn.btn-default(type="button", data-dismiss="modal") Cancel
                     | &nbsp;
                     button#btn-update-test-results.btn.btn-primary(type="button") Update Test Results
+
+    #print-report-dialog.modal.fade
+        .modal-dialog.modal-lg
+            .modal-content
+                .modal-header.bg-primary
+                    button.close(type="button", data-dismiss="modal" aria-hidden="true") &times;
+                    h4.modal-title Test Report
+                .modal-body
+                    .row
+                        .col-xs-4
+                            #report-patient-name
+                            #report-patient-emails
+                            #report-patient-phones
+                        .col-xs-4
+                            div
+                                strong Order status:
+                                | &nbsp;
+                                span#report-order-status
+                            #report-order-createdDate
+                            #report-order-lastModifiedDate
+                        .col-xs-4
+                            div
+                                strong Report status:
+                                | &nbsp;
+                                span#report-report-status
+                            #report-report-createdDate
+                            #report-report-lastModifiedDate
+                    hr
+                    .table-responsive
+                        table.table.table-bordered.table-striped.table-hover
+                            thead.bg-primary
+                                tr
+                                    th Test
+                                    th Value
+                                    th Unit
+                                    th Lower limit
+                                    th Upper Limit
+                            tbody
+                .modal-footer
+                    button.btn.btn-default(type="button", data-dismiss="modal") Cancel
+                    | &nbsp;
+                    button#btn-print-report.btn.btn-primary(type="button") Print
