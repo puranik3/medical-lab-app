@@ -1,3 +1,17 @@
 .cell-order-status, .cell-report-status {
     text-transform: capitalize;
 }
+
+.cell-order-createdDate,
+.cell-order-lastModifiedDate,
+.cell-report-createdDate,
+.cell-report-lastModifiedDate {
+    font-size: 0.8em;
+}
+
+.cell-order-createdDate .time,
+.cell-order-lastModifiedDate .time,
+.cell-report-createdDate .time,
+.cell-report-lastModifiedDate .time {
+    font-size: 0.8em;
+}

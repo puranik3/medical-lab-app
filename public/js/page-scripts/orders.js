@@ -1,6 +1,7 @@
 (function() {
     var $btnInitiateReport = $( '.btn-initiate-report' );
     var $btnUpdateReport = $( '.btn-update-report' );
+    var $btnFreezeReport = $( '.btn-freeze-report' );
     var $btnUpdate = $( '.btn-update' );
     var $btnDelete = $( '.btn-delete' );
 
@@ -9,7 +10,6 @@
 
     var $btnUpdateOrder = $( '#btn-update-order' );
     var $btnUpdateTestResults = $( '#btn-update-test-results' );
-    var $btnFreezeReport = $( '#btn-freeze-report' );
 
     var $activatedRow;
 
@@ -95,8 +95,10 @@
                     $row.removeAttr( 'data-src' );
                     $row.data('src', rowData);
                     $row.find( '.cell-report-status' ).html( report._status );
-                    $row.find( '.cell-report-createdDate' ).html( new Date( report.createdDate ).toString().substr(4, 11) );
-                    $row.find( '.cell-report-lastModifiedDate' ).html( new Date( report.lastModifiedDate ).toString().substr(4, 11) );
+                    $row.find( '.cell-report-createdDate .date' ).html( new Date( report.createdDate ).toString().substr(4, 11) );
+                    $row.find( '.cell-report-createdDate .time' ).html( new Date( report.createdDate ).toTimeString() );
+                    $row.find( '.cell-report-lastModifiedDate .date' ).html( new Date( report.lastModifiedDate ).toString().substr(4, 11) );
+                    $row.find( '.cell-report-lastModifiedDate .time' ).html( new Date( report.lastModifiedDate ).toTimeString() );
 
                     alert( 'Report has been initiated. Addition/Removal of tests and packages shall not be allowed hereafter on this order' ) ;
                 },
@@ -104,7 +106,7 @@
                     alert( 'Some error occured while trying to initiate report.' );
                     console.log( err );
                 }
-            );        
+            );
         } else {
             alert( 'Nothing to do - report for selected order has already been initiated' );
         }
@@ -147,7 +149,8 @@
     function populateTestDetailsInDialog() {
         // associate report details with dialog
         var orderDetails = $activatedRow.data( 'src' );
-        $btnUpdateTestResultsTableBody = $btnUpdateTestResults.find( 'tbody' );
+        console.log( orderDetails );
+        $updateTestResultsDialogTableBody = $updateTestResultsDialog.find( 'tbody' );
 
         if( orderDetails.order.report._status === 'uninitiated' ) {
             $updateTestResultsDialog.modal( 'hide' );
@@ -156,19 +159,20 @@
         }
 
         var $tr = null;
-        $btnUpdateTestResultsTableBody.html( '' );
-        $.each( orderDetails.order.report.results, function( index, result ) {
+        $updateTestResultsDialogTableBody.html( '' );
+        $.each( orderDetails.order.report.results, function( index, resultItem ) {
             $tr = $(
                 [
-                    '<tr>',
-                        '<td>' + '' + '</td>',
-                        '<td>' + '' + '</td>',
-                        '<td>' + '' + '</td>',
-                        '<td>' + '' + '</td>',
-                        '<td>' + '' + '</td>',
+                    '<tr data-id="' + resultItem._id + '">',
+                        '<td>' + resultItem.test.name + '</td>',
+                        '<td>' + '<input type="text" class="result" value="' + resultItem.result + '" />' + '</td>',
+                        '<td>' + resultItem.test.units + '</td>',
+                        '<td>' + resultItem.test.lower_limit + '</td>',
+                        '<td>' + resultItem.test.upper_limit + '</td>',
                     '</tr>'
                 ].join('')
             );
+            $updateTestResultsDialogTableBody.append( $tr );
         });
         
         /*
@@ -203,6 +207,52 @@
         $createUpdateDialog.find( '#emails input[type="email"][readonly]' ).remove();
         */
     }
+
+    function generateUpdatedResults() {
+        var rowDataClone = {};
+        $.extend( true, rowDataClone, $activatedRow.data('src') );
+        
+        var $trs = $updateTestResultsDialog.find( 'tbody tr' );
+        
+        $trs.each(function() {
+            $this = $( this );
+            var resultId = $this.data( 'id' );
+            for( var i = 0; i < rowDataClone.order.report.results.length; i++ ) {
+                if( rowDataClone.order.report.results[i]._id === resultId ) {
+                    rowDataClone.order.report.results[i].result = $this.find( '.result' ).val();
+                    break;
+                }
+            }
+        });
+
+        return rowDataClone;
+    }
+
+    $btnUpdateTestResults.on('click', function() {
+        var updatedTestResults = generateUpdatedResults();
+        var rowData = $activatedRow.data('src');
+
+        MediLab.PatientService.orders.report.update(
+            rowData.patient._id,
+            rowData.order._id,
+            updatedTestResults.order.report.results,
+            'draft',
+            function( report ) {
+                console.log( report );
+                rowData.order.report = report;
+                $activatedRow.removeAttr( 'data-src' );
+                $activatedRow.data('src', rowData);
+
+                $updateTestResultsDialog.modal( 'hide' );
+                alert( 'Report has been successfully updated with the test results' ) ;
+            },
+            function( err ) {
+                $updateTestResultsDialog.modal( 'hide' );
+                alert( 'Some error occured while trying to update report with test results' );
+                console.log( err );
+            }
+        );
+    });
 
     /*
     $btnCreateUpdate.on('click', function() {

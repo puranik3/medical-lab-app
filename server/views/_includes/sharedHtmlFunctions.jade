@@ -16,6 +16,13 @@ mixin getFormattedDate(dateString)
     span
       | #{date}
 
+mixin getFormattedTime(dateString)
+  - var dateObj = new Date( dateString )
+  - var time = dateObj.toTimeString()
+  - if( dateString && dateObj instanceof Date )
+    span
+      | #{time}
+
 mixin renderPatientRow(patient)
   - var strPatient = JSON.stringify(patient)
   tr(data-src="#{strPatient}")
@@ -43,20 +50,34 @@ mixin renderOrderRow(order)
   tr(data-src="#{strOrder}")
       td.cell-patient-name=order.patient.name
       td.cell-order-createdDate
-        +getFormattedDate(order.order.createdDate)
+        .date
+            +getFormattedDate(order.order.createdDate)
+        .time
+            +getFormattedTime(order.order.createdDate)
       td.cell-order-lastModifiedDate
-        +getFormattedDate(order.order.lastModifiedDate)
+        .date
+            +getFormattedDate(order.order.lastModifiedDate)
+        .time
+            +getFormattedTime(order.order.lastModifiedDate)
       td.cell-order-status=order.order._status
       td.cell-report-status=order.order.report._status
       td.cell-report-createdDate
-        +getFormattedDate(order.order.report.createdDate)
+        .date
+            +getFormattedDate(order.order.report.createdDate)
+        .time
+            +getFormattedTime(order.order.report.createdDate)
       td.cell-report-lastModifiedDate
-        +getFormattedDate(order.order.report.lastModifiedDate)
+        .date
+            +getFormattedDate(order.order.report.lastModifiedDate)
+        .time
+            +getFormattedTime(order.order.report.lastModifiedDate)
       td(style='vertical-align: middle;')
           span.pull-right
               i.btn-action.btn-initiate-report.pull-left.fa.fa-file-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}", title="Initiate report")
               span.pull-left &nbsp;&nbsp;
               i.btn-action.btn-update-report.pull-left.fa.fa-file-text-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" data-toggle="modal", data-target='#update-test-results-dialog', title="Update test results")
+              span.pull-left &nbsp;&nbsp;
+              i.btn-action.btn-freeze-report.pull-left.fa.fa-file-text(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" title="Freeze report")
               span.pull-left &nbsp;&nbsp;
               i.btn-action.btn-update.pull-left.fa.fa-pencil(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" data-toggle="modal", data-target='#update-order-dialog')
               span.pull-left &nbsp;&nbsp;
