@@ -81,16 +81,25 @@
     */
     $btnInitiateReport.on('click', function() {
         var $row = $( this ).closest( 'tr' );
-
         var rowData = $row.data('src');
+
         if( rowData.order.report._status === 'uninitiated' ) {
+            var choice = confirm( 'Are you sure you want to initiate the report for this order? The order will be frozen and you will not be able to add/remove tests and packages to/from the order once it is initiated.\n\nPress Cancel to cancel this operation. If you are sure you want to freeze the order and initiate report, press Ok.' );
+            if( !choice ) {
+                return;
+            }
+    
             MediLab.PatientService.orders.report.update(
                 rowData.patient._id,
                 rowData.order._id,
                 [],
                 'initiate',
                 function( report ) {
-                    console.log( report );
+                    if( report._status !== 'initiated' ) {
+                        alert( 'Unknown error occured when trying to initiate report. Try again later.' );
+                        return;
+                    }
+
                     rowData.order.report = report;
                     $row.removeAttr( 'data-src' );
                     $row.data('src', rowData);
@@ -102,10 +111,7 @@
 
                     alert( 'Report has been initiated. Addition/Removal of tests and packages shall not be allowed hereafter on this order' ) ;
                 },
-                function( err ) {
-                    alert( 'Some error occured while trying to initiate report.' );
-                    console.log( err );
-                }
+                MediLab.Utils.processError
             );
         } else {
             alert( 'Nothing to do - report for selected order has already been initiated' );
@@ -114,6 +120,47 @@
 
     $btnUpdateReport.on('click', function() {
         $activatedRow = $( this ).closest( 'tr' );
+    });
+
+    $btnFreezeReport.on('click', function() {
+        var $row = $( this ).closest( 'tr' );        
+        var rowData = $row.data('src');
+
+        if( rowData.order.report._status === 'uninitiated' ) {
+            alert( 'Report for selected order has to be initiated first, before it can be frozen. Initiate the report and try again.' );
+        } else if( rowData.order.report._status === 'completed' ) {
+            alert( 'Nothing to do - report for selected order has already been frozen.' );
+        } else if( rowData.order.report._status === 'initiated' ) {
+            var choice = confirm( 'Are you sure you want to freeze the report for this order? You will not be able to change the test results in the report once it is frozen.\n\nPress Cancel to cancel this operation. If you are sure you want to freeze the report, press Ok.' );
+            if( !choice ) {
+                return;
+            }
+    
+            MediLab.PatientService.orders.report.update(
+                rowData.patient._id,
+                rowData.order._id,
+                [],
+                'complete',
+                function( report ) {
+                    if( report._status !== 'completed' ) {
+                        alert( 'Unknown error occured when trying to freeze report. Try again later.' );
+                        return;
+                    }
+
+                    rowData.order.report = report;
+                    $row.removeAttr( 'data-src' );
+                    $row.data('src', rowData);
+                    $row.find( '.cell-report-status' ).html( report._status );
+                    $row.find( '.cell-report-lastModifiedDate .date' ).html( new Date( report.lastModifiedDate ).toString().substr(4, 11) );
+                    $row.find( '.cell-report-lastModifiedDate .time' ).html( new Date( report.lastModifiedDate ).toTimeString() );
+
+                    alert( 'Report has been frozen. No changes to report will be permitted hereafter.' ) ;
+                },
+                MediLab.Utils.processError
+            );
+        } else {
+            alert( 'Report for selected order is in an unknown state. Contact admin to process this report.' );
+        }
     });
     
     /*
@@ -149,12 +196,15 @@
     function populateTestDetailsInDialog() {
         // associate report details with dialog
         var orderDetails = $activatedRow.data( 'src' );
-        console.log( orderDetails );
         $updateTestResultsDialogTableBody = $updateTestResultsDialog.find( 'tbody' );
 
         if( orderDetails.order.report._status === 'uninitiated' ) {
             $updateTestResultsDialog.modal( 'hide' );
             alert( 'Report for this order has not been initiated. Initiate the report first - then try again.' );
+            return false;
+        } else if( orderDetails.order.report._status === 'completed' ) {
+            $updateTestResultsDialog.modal( 'hide' );
+            alert( 'Report for this order has been frozen - you cannot modify the test results.' );
             return false;
         }
 
@@ -238,7 +288,6 @@
             updatedTestResults.order.report.results,
             'draft',
             function( report ) {
-                console.log( report );
                 rowData.order.report = report;
                 $activatedRow.removeAttr( 'data-src' );
                 $activatedRow.data('src', rowData);
@@ -248,8 +297,7 @@
             },
             function( err ) {
                 $updateTestResultsDialog.modal( 'hide' );
-                alert( 'Some error occured while trying to update report with test results' );
-                console.log( err );
+                MediLab.Utils.processError( err );
             }
         );
     });

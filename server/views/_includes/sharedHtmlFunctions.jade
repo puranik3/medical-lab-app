@@ -73,7 +73,7 @@ mixin renderOrderRow(order)
             +getFormattedTime(order.order.report.lastModifiedDate)
       td(style='vertical-align: middle;')
           span.pull-right
-              i.btn-action.btn-initiate-report.pull-left.fa.fa-file-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}", title="Initiate report")
+              i.btn-action.btn-initiate-report.pull-left.fa.fa-file-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}", title="Freeze order and Initiate report")
               span.pull-left &nbsp;&nbsp;
               i.btn-action.btn-update-report.pull-left.fa.fa-file-text-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" data-toggle="modal", data-target='#update-test-results-dialog', title="Update test results")
               span.pull-left &nbsp;&nbsp;
