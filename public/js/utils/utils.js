@@ -9,7 +9,7 @@ MediLab.Utils = {
         if( typeof date === 'string' ) {
             date = new Date( date );
         }
-        return [date.toString().substr(4, 11), date.toTimeString()].join( dateTimeSeparator );
+        return [date.toString().substr(4, 11), date.toTimeString().substr(0,8)].join( dateTimeSeparator );
     },
     formatDate: function( date ) {
         if( typeof date === 'string' ) {
@@ -21,6 +21,6 @@ MediLab.Utils = {
         if( typeof date === 'string' ) {
             date = new Date( date );
         }
-        return date.toTimeString();
+        return date.toTimeString().substr(0,8);
     }
 };

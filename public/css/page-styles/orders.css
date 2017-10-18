@@ -25,9 +25,9 @@
 
 #report-patient-emails,
 #report-patient-phones,
-#report-order-createdDate,
-#report-order-lastModifiedDate,
-#report-report-createdDate,
-#report-report-lastModifiedDate {
+#report-order-createdDate-outer,
+#report-order-lastModifiedDate-outer,
+#report-report-createdDate-outer,
+#report-report-lastModifiedDate-outer {
     font-size: 0.8em;
 }

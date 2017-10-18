@@ -81,18 +81,30 @@ block globalcontent
                             #report-patient-phones
                         .col-xs-4
                             div
-                                strong Order status:
+                                strong Order:
                                 | &nbsp;
                                 span#report-order-status
-                            #report-order-createdDate
-                            #report-order-lastModifiedDate
+                            div#report-order-createdDate-outer
+                                strong Created:
+                                | &nbsp;
+                                span#report-order-createdDate
+                            div#report-order-lastModifiedDate-outer
+                                strong Modified:
+                                | &nbsp;
+                                span#report-order-lastModifiedDate
                         .col-xs-4
                             div
-                                strong Report status:
+                                strong Report:
                                 | &nbsp;
                                 span#report-report-status
-                            #report-report-createdDate
-                            #report-report-lastModifiedDate
+                            div#report-report-createdDate-outer
+                                strong Created:
+                                | &nbsp;
+                                span#report-report-createdDate
+                            div#report-report-lastModifiedDate-outer
+                                strong Modified:
+                                | &nbsp;
+                                span#report-report-lastModifiedDate
                     hr
                     .table-responsive
                         table.table.table-bordered.table-striped.table-hover
