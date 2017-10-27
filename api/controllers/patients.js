@@ -1,3 +1,4 @@
+var path = require( 'path' );
 var httpStatus = require( 'http-status' );
 var mongoose = require( 'mongoose' );
 var _ = require( 'lodash' );
@@ -799,7 +800,6 @@ module.exports = {
     
                 Patient
                     .findById( patientId )
-                    .select( 'orders' )
                     .exec(function( err, patient ) {
                         if( !patient ) {
                             wlogger.info( '2. end order.report.find() : Patient with given id not found' );
@@ -842,6 +842,8 @@ module.exports = {
                         function saveChangesAndSendReport( patient, order, orderId, isCreated ) {
                             helpers.updateReportAccessMetadata( order, isCreated );
                             patient.save(function( err, patientNew ) {
+                                console.log( 'patient = ', JSON.stringify( patientNew, null, 4 ) );
+
                                 if( err ) {
                                     return utils.sendJsonErrorResponse( req, res, httpStatus.BAD_REQUEST, err.message );
                                 }
@@ -890,7 +892,14 @@ module.exports = {
                             
                             return saveChangesAndSendReport( patient, order, orderId );
                         } else if( order.report && order.report._status === 'initiated' && action === 'complete' ) {
+                            console.log( 'patient = ', JSON.stringify( patient, null, 4 ) );
                             order.report._status = 'completed';
+                            utils.generateReport(
+                                patient,
+                                order,
+                                path.join( __dirname, '../../', 'documents/reports/' + order._id + '.pdf' ),
+                                'application/pdf'
+                            );
                             return saveChangesAndSendReport( patient, order, orderId );
                         } else {
                             res.status( httpStatus.UNPROCESSABLE_ENTITY ).json({

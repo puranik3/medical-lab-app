@@ -73,17 +73,23 @@ mixin renderOrderRow(order)
             +getFormattedTime(order.order.report.lastModifiedDate)
       td(style='vertical-align: middle;')
           span.pull-right
-              i.btn-action.btn-initiate-report.pull-left.fa.fa-file-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}", title="Freeze order and Initiate report")
-              span.pull-left &nbsp;&nbsp;
-              i.btn-action.btn-update-report.pull-left.fa.fa-file-text-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" data-toggle="modal", data-target='#update-test-results-dialog', title="Update test results")
-              span.pull-left &nbsp;&nbsp;
-              i.btn-action.btn-freeze-report.pull-left.fa.fa-file-text(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" title="Freeze report")
-              span.pull-left &nbsp;&nbsp;
-              i.btn-action.btn-view-report.pull-left.fa.fa-eye(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}",  data-toggle="modal", data-target='#print-report-dialog', title="View/Print report")
-              span.pull-left &nbsp;&nbsp;
-              i.btn-action.btn-update.pull-left.fa.fa-pencil(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" data-toggle="modal", data-target='#update-order-dialog')
-              span.pull-left &nbsp;&nbsp;
-              i.btn-action.btn-delete.pull-left.fa.fa-close(data-patient-id="#{order.patient._id}", data-order-id="#{order.order_id}")
+              div.clearfix
+                i.btn-action.btn-initiate-report.pull-left.fa.fa-file-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}", title="Freeze order and Initiate report")
+                span.pull-left &nbsp;&nbsp;
+                i.btn-action.btn-update-report.pull-left.fa.fa-file-text-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" data-toggle="modal", data-target='#update-test-results-dialog', title="Update test results")
+                span.pull-left &nbsp;&nbsp;
+                i.btn-action.btn-freeze-report.pull-left.fa.fa-file-text(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" title="Freeze report")
+              div.clearfix
+                i.btn-action.btn-view-report.pull-left.fa.fa-eye(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}",  data-toggle="modal", data-target='#print-report-dialog', title="View/Print report")
+                span.pull-left &nbsp;&nbsp;
+                a(href="/reports/#{order.order._id}.pdf", download="/reports/#{order.order._id}.pdf", target="_blank", title="Download report as pdf")
+                    i.btn-action.btn-download-pdf.pull-left.fa.fa-file-pdf-o(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}")
+                span.pull-left &nbsp;&nbsp;
+                i.btn-action.btn-print-report.pull-left.fa.fa-print(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}", title="Print report", onclick="MediLab.Utils.print( '/reports/#{order.order._id}.pdf' );")
+              div.clearfix
+                i.btn-action.btn-update.pull-left.fa.fa-pencil(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" data-toggle="modal", data-target='#update-order-dialog')
+                span.pull-left &nbsp;&nbsp;
+                i.btn-action.btn-delete.pull-left.fa.fa-close(data-patient-id="#{order.patient._id}", data-order-id="#{order.order_id}")
 
 mixin renderTestRow(test)
   - var strTest = JSON.stringify(test)

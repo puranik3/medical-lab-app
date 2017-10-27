@@ -13,6 +13,7 @@
 
     var $btnUpdateOrder = $( '#btn-update-order' );
     var $btnUpdateTestResults = $( '#btn-update-test-results' );
+    var $btnDownloadPdf = $( '#btn-download-pdf' );
     var $btnPrintReport = $( '#btn-print-report' );
 
     var $reportPatientName = $( '#report-patient-name' );
@@ -345,6 +346,7 @@
         $reportReportLastModifiedDate.html( MediLab.Utils.formatDateTime( orderDetails.order.report.lastModifiedDate, ' ' ) );
 
         var $tr = null;
+        $printReportDialogTableBody.html('');
         $.each( orderDetails.order.report.results, function( index, resultItem ) {
             $tr = $(
                 [
@@ -358,6 +360,16 @@
                 ].join('')
             );
             $printReportDialogTableBody.append( $tr );
+        });
+
+        $btnDownloadPdf.attr({
+            href: '/reports/' + orderDetails.order._id + '.pdf',
+            download: '/reports/' + orderDetails.order._id + '.pdf'
+        });
+
+        $btnPrintReport.off();
+        $btnPrintReport.on('click', function() {
+            MediLab.Utils.print( '/reports/' + orderDetails.order._id + '.pdf' );
         });
     }
 

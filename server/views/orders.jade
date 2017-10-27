@@ -119,4 +119,12 @@ block globalcontent
                 .modal-footer
                     button.btn.btn-default(type="button", data-dismiss="modal") Cancel
                     | &nbsp;
-                    button#btn-print-report.btn.btn-primary(type="button") Print
+                    a#btn-download-pdf.btn.btn-default(type="button", class="btn btn-default", target="_blank")
+                        i.fa.fa-file-pdf-o
+                        | &nbsp;
+                        | Download pdf
+                    | &nbsp;
+                    button#btn-print-report.btn.btn-primary(type="button")
+                        i.fa.fa-print
+                        | &nbsp;
+                        | Print

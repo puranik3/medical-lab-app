@@ -22,5 +22,28 @@ MediLab.Utils = {
             date = new Date( date );
         }
         return date.toTimeString().substr(0,8);
+    },
+    /**
+     * In case a portion of an document is to be printed, pass the id of the element container for argument doc.
+     * Else pass the path to the document on the server.
+     */
+    print: function printDiv( doc, isElement ) {
+        var w;
+
+        if( isElement ) {
+            w = window.open();
+            var printContents = document.getElementById( doc ).innerHTML;
+            w.document.write( printContents );
+            w.print();
+            w.close();
+        } else {
+            w = window.open( doc );
+            w.onload = function() {
+                w.print();
+            };
+            w.onafterprint = function() {
+                w.close();
+            };
+        }
     }
 };
