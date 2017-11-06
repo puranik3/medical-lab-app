@@ -38,7 +38,7 @@ function generateReport2( patient, order, outputFile, type ) {
         });
         
         // console.log( '*** image url ***' );
-        // console.log(`<img src="` + `file://Users/admin/Documents/development/medilab/documents/reports/templates/kumaran-lab/header.png` + `" />`);
+        // console.log(`<img src="` + `file://Users/admin/Documents/development/medilab/documents/reports/templates/manas-lab/header.png` + `" />`);
         // console.log( '*** generated report html ***' );
         // console.log( html );
         // console.log( '***' );
@@ -46,7 +46,7 @@ function generateReport2( patient, order, outputFile, type ) {
         conversion(
             {
                 html: html,
-                header: `<img src="` + `/Users/admin/Documents/development/medilab/documents/reports/templates/kumaran-lab/header.png` + `" />`,
+                header: `<img src="` + `/Users/admin/Documents/development/medilab/documents/reports/templates/manas-lab/header.png` + `" />`,
                 footer: '<div style="text-align:center">{#pageNum}/{#numPages}</div>',
             },
             function(err, pdf) {
@@ -79,8 +79,8 @@ function generateReport( patient, order, outputFile, type ) {
         patient: patient,
         order: order
     });
-    var pathHeaderImage = path.join('file://', __dirname, `../documents/reports/templates/kumaran-lab/header.png` );
-    var pathFooterImage = path.join('file://', __dirname, `../documents/reports/templates/kumaran-lab/footer.png` );
+    var pathHeaderImage = path.join('file://', __dirname, `../documents/reports/templates/manas-lab/header.png` );
+    var pathFooterImage = path.join('file://', __dirname, `../documents/reports/templates/manas-lab/footer.png` );
     html = html.replace('{{path-header-image}}', pathHeaderImage);
     html = html.replace('{{path-footer-image}}', pathFooterImage);
     
@@ -98,7 +98,7 @@ function generateReport( patient, order, outputFile, type ) {
            
             paginationOffset: 1,
             
-            // `<img src=` + path.join( `./templates/kumaran-lab/footer.png` ) + `" />` +
+            // `<img src=` + path.join( `./templates/manas-lab/footer.png` ) + `" />` +
             "header": {
               "height": "45mm",
               "contents": `<div style="text-align: center; margin-bottom: 0.5in;">
@@ -142,7 +142,7 @@ function generateReport( patient, order, outputFile, type ) {
        };
 
     //    console.log( '*** image url ***' );
-    //    console.log(`<img src="` + `file:///Users/admin/Documents/development/medilab/documents/reports/templates/kumaran-lab/header.png` + `" />`);
+    //    console.log(`<img src="` + `file:///Users/admin/Documents/development/medilab/documents/reports/templates/manas-lab/header.png` + `" />`);
     //    console.log( '*** generated report html ***' );
     //    console.log( html );
     //    console.log( '***' );
