@@ -7,7 +7,7 @@ var html = fs.readFileSync( path.join( __dirname, 'documents/reports/test-report
 // Including image in header/footer
 // https://stackoverflow.com/questions/35335698/add-image-in-header-using-html-pdf-node-module
 
-console.log( path.join( __dirname, `documents/reports/templates/kumaran-lab/footer.png`) );
+console.log( path.join( __dirname, `documents/templates/reports/kumaran-lab/footer.png`) );
 
 var config = {    
      "format": "A4",        // allowed units: A3, A4, A5, Legal, Letter, Tabloid
