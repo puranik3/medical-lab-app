@@ -1,7 +1,7 @@
 node_modules/
-log/
+log/**
 requirements/
-documents/reports
+documents/reports/**
 !documents/reports/templates
 businesscard/
 .npm-debug.log
