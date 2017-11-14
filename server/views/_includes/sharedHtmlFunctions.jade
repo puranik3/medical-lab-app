@@ -89,7 +89,7 @@ mixin renderOrderRow(order)
               div.clearfix
                 i.btn-action.btn-update.pull-left.fa.fa-pencil(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}" data-toggle="modal", data-target='#update-order-dialog')
                 span.pull-left &nbsp;&nbsp;
-                i.btn-action.btn-delete.pull-left.fa.fa-close(data-patient-id="#{order.patient._id}", data-order-id="#{order.order_id}")
+                i.btn-action.btn-delete.pull-left.fa.fa-close(data-patient-id="#{order.patient._id}", data-order-id="#{order.order._id}")
 
 mixin renderTestRow(test)
   - var strTest = JSON.stringify(test)

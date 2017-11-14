@@ -185,27 +185,29 @@
         modalState = 'update';
         $activatedRow = $( this ).closest( 'tr' );
     });
- 
+    */
+
     $btnDelete.on('click', function() {
-        var choice = confirm( 'Are you sure you want to remove this patient from your records? You cannot undo this action.\n\nPress Cancel to cancel this operation. If you are sure you want to remove, press Ok.' );
+        var choice = confirm( 'Are you sure you want to delete this order from your records? You cannot undo this action.\n\nPress Cancel to cancel this operation. If you are sure you want to remove, press Ok.' );
         if( !choice ) {
             return;
         }
 
         var that = this;
-        MediLab.PatientService.deleteById(
-            $(that).data('id'),
-            function( patients ) {
+        MediLab.PatientService.orders.deleteById(
+            $(that).data('patient-id'),
+            $(that).data('order-id'),
+            function( response ) {
                 console.log( $(this).closest('tr') );
                 $(that).closest('tr').remove();
             },
             function( err ) {
-                alert( 'Some error occured when trying to remove patient' );
+                alert( 'Some error occured when trying to delete order' );
                 console.log( err );
             }
         );
     });
-    */
+    
 
     $updateTestResultsDialog.on( 'show.bs.modal', populateTestDetailsInDialog );
     $updateTestResultsDialog.on( 'hidden.bs.modal', resetUpdateTestResultsDialog );

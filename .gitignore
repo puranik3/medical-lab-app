@@ -1,5 +1,9 @@
 node_modules/
+log/
 requirements/
+documents/reports
+!documents/reports/templates
+businesscard/
 .npm-debug.log
 .vscode
 .DS_Store
