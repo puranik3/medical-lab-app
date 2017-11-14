@@ -1,7 +1,7 @@
 node_modules/
 log/
 requirements/
-documents/templates
+documents/reports
 businesscard/
 .npm-debug.log
 .vscode
