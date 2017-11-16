@@ -44,7 +44,7 @@ app.use(session({
   secret: 'shhh...',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 60000 * 60 },
+  cookie: { maxAge: 60000 * 60 * 24 * 30 },
   store: new MongoStore({
       url: global.MediLab.DB_URI
   })

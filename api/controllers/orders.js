@@ -41,6 +41,10 @@ module.exports = {
                     });
                 });
 
+                orders.sort(function(a, b) {
+                    return b.order.createdDate.getTime() - a.order.createdDate.getTime();
+                });
+
                 wlogger.info( 'end find() : patients = ', JSON.stringify( patients ) );
                 debug( 'end find() : patients = %O', patients );
                 res.status( httpStatus.OK ).json( orders );

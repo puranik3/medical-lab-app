@@ -3,6 +3,7 @@ var router = express.Router();
 
 var patientsCtrl = require( '../controllers/patients' );
 
+router.get( '/count', patientsCtrl.count );
 router.get( '/', patientsCtrl.find );
 router.get( '/:patientId', patientsCtrl.findById );
 router.post( '/', patientsCtrl.create );

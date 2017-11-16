@@ -9,6 +9,8 @@ var debug = require( 'debug' )( 'medilab:api:controllers:patients' );
 var wlogger = require('../../server/init-logger' );
 var testPackageUtils = require( '../utils/test-and-package' );
 
+var perPage = 10;
+
 var helpers = {
     updateOrderAccessMetadata: function( order, isCreated ) {
         var now = new Date;
@@ -27,29 +29,50 @@ var helpers = {
 };
 
 module.exports = {
+    count: function(req, res, next) {
+        debug( 'start count()' );
+
+        Patient.count(function( err, count ) {
+            res.status( httpStatus.OK ).json( {
+                documents: count,
+                pages: Math.ceil( count / perPage )
+            });
+        });
+    },
     find: function(req, res, next) {
         wlogger.info( 'start find()' );
         debug( 'start find()' );
-        Patient
-            .find()
-            .select( 'name dob age sex emails phones' )
-            .exec(function( err, patients ) {
-                if( !patients ) {
-                    wlogger.info( 'end find() : Patients not found' );
-                    debug( 'end find() : Patients not found' );
-                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Patients not found' );
-                }
-    
-                if( err ) {
-                    wlogger.info( 'end find() : ', err.message );
-                    debug( 'end find() : %s', err.message );
-                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
-                }
 
-                wlogger.info( 'end find() : patients = ', JSON.stringify( patients ) );
-                debug( 'end find() : patients = %O', patients );
-                res.status( httpStatus.OK ).json( patients );
-            });
+        var page = req.param('page')
+
+        var query = Patient
+            .find()
+            .sort( 'name' )
+            .select( 'name dob age sex emails phones' );
+
+        if( page ) {
+            query
+                .limit( perPage )
+                .skip( perPage * page )
+        }
+
+        query.exec(function( err, patients ) {
+            if( !patients ) {
+                wlogger.info( 'end find() : Patients not found' );
+                debug( 'end find() : Patients not found' );
+                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Patients not found' );
+            }
+
+            if( err ) {
+                wlogger.info( 'end find() : ', err.message );
+                debug( 'end find() : %s', err.message );
+                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
+            }
+
+            wlogger.info( 'end find() : patients = ', JSON.stringify( patients ) );
+            debug( 'end find() : patients = %O', patients );
+            res.status( httpStatus.OK ).json( patients );
+        });
     },
     findById : function(req, res, next) {
         var patientId = ( req.params && req.params.patientId ) || 0;

@@ -18,7 +18,9 @@ block content
             button#btn-create.btn.btn-primary.pull-right(role='button', data-toggle="modal", data-target='#create-update-dialog')
                 i.fa.fa-plus
                 | &nbsp; Add patient
-    
+
+    +renderPaginator(count, start, end, page, 'patients')
+
     .table-responsive
         table.table.table-bordered.table-striped.table-hover
             thead.bg-primary

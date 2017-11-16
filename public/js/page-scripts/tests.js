@@ -3,6 +3,9 @@
     var $btnUpdate = $( '.btn-update' );
     var $btnDelete = $( '.btn-delete' );
 
+    var $previousTests = $( '#previous-tests' );
+    var $nextTests = $( '#next-tests' );
+
     var $createUpdateDialog = $( '#create-update-dialog' );
     var $btnCreateUpdate = $( '#btn-create-update' );
 
@@ -113,4 +116,18 @@
             );
         }
     }
+
+    /*
+    $previousTests.on('click', function() {
+        var currentPage = MediLab.Utils.getQueryStringParams().page || 0;
+        var previousPage = Math.max( +currentPage - 1, 0 );
+        window.location.assign( '//' + window.location.host + window.location.pathname + '?page=' + previousPage );
+    });
+
+    $nextTests.on('click', function() {
+        var currentPage = MediLab.Utils.getQueryStringParams().page || 0;
+        var nextPage = +currentPage + 1;
+        window.location.assign( '//' + window.location.host + window.location.pathname + '?page=' + nextPage );
+    });
+    */
 }());

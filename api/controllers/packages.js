@@ -7,29 +7,52 @@ var utils = require( '../../utils/utils' );
 var debug = require( 'debug' )( 'medilab:api:controllers:packages' );
 var wlogger = require('../../server/init-logger' );
 
+var perPage = 10;
+
 module.exports = {
+    count: function(req, res, next) {
+        debug( 'start count()' );
+
+        Package.count(function( err, count ) {
+            res.status( httpStatus.OK ).json( {
+                documents: count,
+                pages: Math.ceil( count / perPage )
+            });
+        });
+    },
     find: function(req, res, next) {
         wlogger.info( 'start find()' );
         debug( 'start find()' );
-        Package
-            .find()
-            .exec(function( err, packages ) {
-                if( !packages ) {
-                    wlogger.info( 'end find() : Packages not found' );
-                    debug( 'end find() : Packages not found' );
-                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Packages not found' );
-                }
-    
-                if( err ) {
-                    wlogger.info( 'end find() : ', err.message );
-                    debug( 'end find() : %s', err.message );
-                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
-                }
 
-                wlogger.info( 'end find() : packages = ', JSON.stringify( packages ) );
-                debug( 'end find() : packages = %O', packages );
-                res.status( httpStatus.OK ).json( packages );
-            });
+        var page = req.param('page')
+
+        var query = Package
+            .find()
+            .sort( 'name' );
+
+        if( page ) {
+            query
+                .limit( perPage )
+                .skip( perPage * page )
+        }
+
+        query.exec(function( err, packages ) {
+            if( !packages ) {
+                wlogger.info( 'end find() : Packages not found' );
+                debug( 'end find() : Packages not found' );
+                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Packages not found' );
+            }
+
+            if( err ) {
+                wlogger.info( 'end find() : ', err.message );
+                debug( 'end find() : %s', err.message );
+                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
+            }
+
+            wlogger.info( 'end find() : packages = ', JSON.stringify( packages ) );
+            debug( 'end find() : packages = %O', packages );
+            res.status( httpStatus.OK ).json( packages );
+        });
     },
     findById : function(req, res, next) {
         var packageId = ( req.params && req.params.packageId ) || 0;

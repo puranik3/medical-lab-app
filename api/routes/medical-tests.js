@@ -3,6 +3,7 @@ var router = express.Router();
 
 var medicalTestsCtrl = require( '../controllers/medical-tests' );
 
+router.get( '/count', medicalTestsCtrl.count );
 router.get( '/', medicalTestsCtrl.find );
 router.get( '/:medicalTestId', medicalTestsCtrl.findById );
 router.post( '/', medicalTestsCtrl.create );

@@ -8,19 +8,29 @@ var utils = require( '../../utils/utils' );
 
 module.exports = {
     find: function(req, res, next) {
-        User
-            .find()
-            .exec(function( err, users ) {
-                if( !users ) {
-                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, "Users not found" );
-                }
-    
-                if( err ) {
-                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
-                }
+        var perPage = 10, page = req.param('page')
 
-                res.status( httpStatus.OK ).json( users );
-            });
+        var query = User
+            .find()
+            .sort( 'email' )
+
+        if( page ) {
+            query
+                .limit( perPage )
+                .skip( perPage * page )
+        }
+
+        query.exec(function( err, users ) {
+            if( !users ) {
+                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, "Users not found" );
+            }
+
+            if( err ) {
+                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
+            }
+
+            res.status( httpStatus.OK ).json( users );
+        });
     },
     findById : function(req, res, next) {
         var userId = ( req.params && req.params.userId ) || 0;

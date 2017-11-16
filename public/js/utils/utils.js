@@ -45,5 +45,21 @@ MediLab.Utils = {
                 w.close();
             };
         }
+    },
+    // https://stackoverflow.com/questions/7731778/get-query-string-parameters-with-jquery
+    getQueryStringParams: function() {
+        var queryString = {};
+        var pairs = location.search.substr( 1 ).split( '&' );
+        $.each(pairs, function (index, pair) {
+            if (pair === '' ) {
+                return;
+            }
+
+            var parts = pair.split( '=' );
+            queryString[parts[0]] = parts[1] &&
+                decodeURIComponent(parts[1].replace( /\+/g, ' ' ) );
+        });
+
+        return queryString;
     }
 };

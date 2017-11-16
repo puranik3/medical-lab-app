@@ -9,6 +9,52 @@ mixin showPackageDiscountPercentageIfApplicable(package)
       span
         | %
 
+mixin renderPrevious(start, page)
+    - if( +start === 1 )
+        li.previous.disabled
+            a#previous-tests(href='#')
+                span(aria-hidden='true')
+                    | &larr;
+                | &nbsp;
+                | Previous
+    - if( +start !== 1 )
+        li.previous
+            a#previous-tests(href='/tests?page=#{+page - 1}')
+                span(aria-hidden='true')
+                    | &larr;
+                | &nbsp;
+                | Previous
+
+mixin renderNext(end, count)
+    - if( +end === +count.documents )
+        li.next.disabled
+            a#next-tests(href='#')
+                span(aria-hidden='true')
+                    | &rarr;
+                | &nbsp;
+                | Next
+    - if( +end !== +count.documents )
+        li.next
+            a#next-tests(href='/tests?page=#{+page + 1}')
+                span(aria-hidden='true')
+                    | &rarr;
+                | &nbsp;
+                | Next
+
+mixin renderPaginator(count, start, end, page, pageDescriptor)
+    nav(aria-label='...')
+        ul.pager
+            +renderPrevious(start, page)
+            +renderNext(end, count, page)
+            li
+                | Showing&nbsp;
+                div(style="display:inline;") #{start}
+                | &nbsp;to&nbsp;
+                div(style="display:inline;") #{end}
+                | &nbsp;(of&nbsp;
+                div(style="display:inline;") #{count.documents}
+                | &nbsp;#{pageDescriptor})
+    
 mixin getFormattedDate(dateString)
   - var dateObj = new Date( dateString )
   - var date = dateObj.toString().substr(4, 11)

@@ -5,25 +5,48 @@ var MedicalTest = mongoose.model( 'MedicalTest' );
 var utils = require( '../../utils/utils' );
 var debug = require( 'debug' )( 'medilab:api:controllers:medical-tests' );
 
+var perPage = 10;
+
 module.exports = {
+    count: function(req, res, next) {
+        debug( 'start count()' );
+
+        MedicalTest.count(function( err, count ) {
+            res.status( httpStatus.OK ).json( {
+                documents: count,
+                pages: Math.ceil( count / perPage )
+            });
+        });
+    },
     find: function(req, res, next) {
         debug( 'start find()' );
-        MedicalTest
-            .find()
-            .exec(function( err, medicalTests ) {
-                if( !medicalTests ) {
-                    debug( 'end find() : Medical tests not found' );
-                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Medical tests not found' );
-                }
-    
-                if( err ) {
-                    debug( 'end find() : %s', err.message );
-                    return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
-                }
 
-                debug( 'end find() : medicalTests = %O', medicalTests );
-                res.status( httpStatus.OK ).json( medicalTests );
-            });
+        var page = req.param('page')
+
+        var query = MedicalTest
+            .find()
+            .sort( 'name' );
+
+        if( page ) {
+            query
+                .limit( perPage )
+                .skip( perPage * page )
+        }
+            
+        query.exec(function( err, medicalTests ) {
+            if( !medicalTests ) {
+                debug( 'end find() : Medical tests not found' );
+                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, 'Medical tests not found' );
+            }
+
+            if( err ) {
+                debug( 'end find() : %s', err.message );
+                return utils.sendJsonErrorResponse( req, res, httpStatus.NOT_FOUND, err.message );
+            }
+
+            debug( 'end find() : medicalTests = %O', medicalTests );
+            res.status( httpStatus.OK ).json( medicalTests );
+        });
     },
     findById : function(req, res, next) {
         var medicalTestId = ( req.params && req.params.medicalTestId ) || 0;

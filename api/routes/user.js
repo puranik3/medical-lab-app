@@ -3,6 +3,7 @@ var router = express.Router();
 
 var userCtrl = require( '../controllers/users' );
 
+router.get( '/count', userCtrl.count );
 router.get( '/', userCtrl.find );
 router.get( '/:patientId', userCtrl.findById );
 router.post( '/', userCtrl.create );

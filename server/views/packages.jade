@@ -15,7 +15,9 @@ block content
             button#btn-create.btn.btn-primary.pull-right(role='button', data-toggle="modal", data-target='#create-update-dialog')
                 i.fa.fa-plus
                 | &nbsp; Add package
-    
+
+    +renderPaginator(count, start, end, page, 'packages')
+
     #package-list.panel-group
         each package, index in packages
             +renderPackagePanel(package, index)

@@ -3,6 +3,7 @@ var router = express.Router();
 
 var packagesCtrl = require( '../controllers/packages' );
 
+router.get( '/count', packagesCtrl.count );
 router.get( '/', packagesCtrl.find );
 router.get( '/:packageId', packagesCtrl.findById );
 router.post( '/', packagesCtrl.create );
