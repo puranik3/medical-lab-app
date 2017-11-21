@@ -9,7 +9,7 @@ mixin showPackageDiscountPercentageIfApplicable(package)
       span
         | %
 
-mixin renderPrevious(start, page)
+mixin renderPrevious(start, page, pageDescriptor)
     - if( +start === 1 )
         li.previous.disabled
             a#previous-tests(href='#')
@@ -19,13 +19,13 @@ mixin renderPrevious(start, page)
                 | Previous
     - if( +start !== 1 )
         li.previous
-            a#previous-tests(href='/tests?page=#{+page - 1}')
+            a#previous-tests(href='/#{pageDescriptor}?page=#{+page - 1}')
                 span(aria-hidden='true')
                     | &larr;
                 | &nbsp;
                 | Previous
 
-mixin renderNext(end, count)
+mixin renderNext(end, count, pageDescriptor)
     - if( +end === +count.documents )
         li.next.disabled
             a#next-tests(href='#')
@@ -35,7 +35,7 @@ mixin renderNext(end, count)
                 | Next
     - if( +end !== +count.documents )
         li.next
-            a#next-tests(href='/tests?page=#{+page + 1}')
+            a#next-tests(href='/#{pageDescriptor}?page=#{+page + 1}')
                 span(aria-hidden='true')
                     | &rarr;
                 | &nbsp;
@@ -44,8 +44,8 @@ mixin renderNext(end, count)
 mixin renderPaginator(count, start, end, page, pageDescriptor)
     nav(aria-label='...')
         ul.pager
-            +renderPrevious(start, page)
-            +renderNext(end, count, page)
+            +renderPrevious(start, page, pageDescriptor)
+            +renderNext(end, count, page, pageDescriptor)
             li
                 | Showing&nbsp;
                 div(style="display:inline;") #{start}
