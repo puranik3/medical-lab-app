@@ -22,7 +22,7 @@ module.exports = function(req, res, next) {
     var page = req.param('page') || 0;
 
     var countRequestOptions = {
-        url: global.MediLab.API_BASE_URL + '/packages/count?page=' + page,
+        url: global.MediLab.API_BASE_URL + '/packages/count',
         method: 'GET',
         headers: req.headers, // pass on headers received when making an API call
         json: {}
@@ -31,7 +31,7 @@ module.exports = function(req, res, next) {
     debug( 'countRequestOptions = %o', countRequestOptions );
 
     var requestOptionsPackages = {
-        url: global.MediLab.API_BASE_URL + '/packages',
+        url: global.MediLab.API_BASE_URL + '/packages?page=' + page,
         method: 'GET',
         headers: req.headers, // pass on headers received when making an API call
         json: {}
